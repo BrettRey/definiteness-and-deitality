@@ -1,0 +1,802 @@
+% cite as https://ling.auf.net/lingbuzz/009369
+
+% !TEX TS-program = xelatex
+\documentclass[12pt,letterpaper]{article}
+
+\input{preamble.tex}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\setlength{\headheight}{13.6pt}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta,shapes,positioning,calc}
+\ifdefined\blindsubmission
+\hypersetup{
+  pdftitle={Definiteness and Deitality in English: A Projectibility-First Account},
+  pdfauthor={},
+  pdfkeywords={definiteness, article, demonstratives, projectibility, determinatives}
+}
+\else
+\hypersetup{
+  pdftitle={Definiteness and Deitality in English: A Projectibility-First Account},
+  pdfauthor={Brett Reynolds},
+  pdfkeywords={definiteness, article, demonstratives, projectibility, determinatives}
+}
+\fi
+\urlstyle{same}
+\setcounter{biburlnumpenalty}{9000}
+\setcounter{biburlucpenalty}{9000}
+\setcounter{biburllcpenalty}{9000}
+\newcommand{\myorcid}{0000-0003-0073-7195}
+\newcommand{\AuthorWithORCID}[2]{#1\,\orcidlink{#2}}
+
+%~-- Macros~--
+\newcommand{\Deital}{\textsc{deital}}
+\newcommand{\Nondeital}{\textsc{non-deital}}
+\newcommand{\Deitality}{\textsc{deitality}}
+\newcommand{\Definiteness}{\textsc{definiteness}}
+% Upright (non-italic) slash that still allows a break after it
+\DeclareRobustCommand{\upslash}{\/\textup{~\slash~}}
+\newcommand{\MetaphysicsClusterCites}{%
+  \ifdefined\blindsubmission
+    \parencite{slater2015,khalidi2013,khalidi2018nodes,onishi2022,anonymous2026notEveryStableCluster}%
+  \else
+    \parencite{slater2015,khalidi2013,khalidi2018nodes,onishi2022,reynolds2026notEveryStableCluster}%
+  \fi}
+\newcommand{\MetaphysicsSelfCite}{%
+  \ifdefined\blindsubmission
+    \parencite{anonymous2026notEveryStableCluster}%
+  \else
+    \parencite{reynolds2026notEveryStableCluster}%
+  \fi}
+\newcommand{\PrepositionCitation}{%
+  \ifdefined\blindsubmission
+    \parencite{anonymous2025prepositions}%
+  \else
+    \parencite{Reynolds2025}%
+  \fi}
+
+
+%~--~--~-- - Title~--~--~-- -
+\title{Definiteness and Deitality in English:\\A Projectibility-First Account}
+\ifdefined\blindsubmission
+\author{}
+\date{}
+\else
+\author{\AuthorWithORCID{Brett Reynolds}{\myorcid}\thanks{I thank Cris Chatterjee for helpful feedback. I used Claude Sonnet 4.5 extensively in drafting and editing this paper with some input from ChatGPT 5 and Gemini 2.5 Pro. I reviewed and edited all text, and I take full responsibility for all claims and conclusions.}\\[4pt]
+Humber Polytechnic \& University of Toronto}
+\date{\today}
+\fi
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+I separate the semantic category of \textsc{definiteness} from the structural category I call \textsc{deitality}. Deitality is a projectible grammatical profile: its central properties include resistance as the pivot of existential \textit{there} under neutral prosody, eligibility as the complement of partitive \textit{of}, suitability as a host for nonrestrictive modification and identificational constructions, and a strong tendency to mark semantically definite referents. Definiteness is the semantic profile with which deitality usually aligns: identifiability, uniqueness, and anaphoric recoverability. The two profiles are strongly correlated but not identical. Their imperfect alignment explains weak definites, generic definites, narrative \textit{this}, and cases where proper names or bare nominals are semantically definite yet morphosyntactically non-deital. The account is projectibility-first: a category is justified by the inferences it supports, not by a necessary-and-sufficient definition. Deitality earns its place because it predicts which diagnostics travel together, which pieces of the profile survive semantic mismatch, and which dimensions of the system vary across prosody, dialect, construction, and acquisition.
+\end{abstract}
+
+\textbf{Keywords:} definiteness, article, demonstratives, determinatives, projectibility
+
+\newpage
+\section{Introduction}\label{sec:intro}
+
+English grammars routinely conflate morphosyntactic form with semantic function. When it comes to definiteness, this conflation creates persistent empirical problems. Tests that target morphosyntax~-- like the definiteness effect in existential \textit{there}~-- are treated as direct probes of uniqueness or familiarity. Meanwhile, semantic heuristics~-- like asking whether it makes sense to say \textit{which one?}~-- are used to define grammatical categories. The result is a theoretical tangle where neither form nor meaning gets a clean characterization.
+
+I propose a radical decoupling. The structural category~-- which I call \Deitality{}~-- is defined by a profile of distributional properties that co-occur in English determiners. The semantic category \Definiteness{} is defined by a distinct profile of interpretive properties related to referent identifiability. Deitality is morphosyntactic but often semantically definite; definiteness is semantic but often morphosyntactically deital. The correlation is strong. The identity is absent. 
+
+This misalignment produces well-known puzzles. So-called \enquote{weak definites} like \textit{go to the hospital}~-- I retain the label though the analysis here treats them as deital but indefinite~-- combine deital morphology with semantically indefinite reference. \enquote{Generic definites} like \textit{The tiger is endangered} are deital but involve kind reference rather than individual-level definiteness. And proper names are semantically definite yet morphosyntactically non-deital. These are classic cases of form-function mismatch \parencite{FrancisMichaelis2003}: the morphosyntactic and semantic categories systematically come apart.
+
+The theoretical apparatus comes from natural-kind theory, but the payoff is linguistic. I treat deitality as a projectible grammatical profile in the tradition of homeostatic property-cluster (HPC) theory \parencite{boyd1991,boyd1999}. A projectible profile combines a contingent cluster of properties with enough order and maintenance to support inference. No single property is required, membership is graded, and boundary placement can shift over time. What makes the category coherent is that partial evidence about one part of the profile licenses expectations about the rest.
+
+The revision from a simple HPC account matters. Not every stable profile is homeostatic in a strict sense. The later literature distinguishes stable clustering, network order, maintenance, and corrective control \MetaphysicsClusterCites{}. This paper needs the first three, and in places the fourth: it shows that deitality has a stable profile, that the profile is ordered by syntax, discourse, diachrony, and acquisition, and that several processes help maintain it. It does not need to claim that English deitality is a single corrective-control system.
+
+The relevant maintainers operate at distinct timescales. Grammaticalization creates the profile historically when demonstratives become articles; acquisition filters it as each generation learns the system; interactive alignment stabilizes it in real-time conversation; prestige selection shapes it across communities; iterated transmission filters it across generations. Definiteness, by contrast, is maintained by discourse-pragmatic pressures: common ground management, bridging, and topic continuity create correlations among identifiability, uniqueness, and anaphoric tracking. The profiles overlap substantially~-- most deital marking appears on definite referents~-- and the distinct maintainers let us predict where the overlap will hold and where it will loosen.
+
+The payoff is empirical before it is philosophical. The projectibility-first framework explains why deitality and definiteness align without being identical, why weak and generic definites exist, and why proper names pattern as they do. It also tells us what to expect once we identify a determiner or construction as more or less deital: which untested diagnostics it should satisfy, which pieces of the profile should survive semantic mismatch, and which parts of the system should vary across prosodic, dialectal, and developmental conditions. Theoretically, it offers a principled way to embrace graded category membership: categories can have prototypical members and gradient edges while remaining real and explanatorily useful.
+
+The paper proceeds as follows. Section~\ref{sec:hpc} introduces the projectibility-first framework and justifies its application to grammatical categories. Section~\ref{sec:semantic} characterizes definiteness as a semantic profile. Section~\ref{sec:diagnostics} develops the diagnostics for deitality as morphosyntactic tests. Section~\ref{sec:mechanisms} identifies the maintainers of the deital profile and derives empirical predictions. Section~\ref{sec:cases} applies the framework to weak and generic definites. Section~\ref{sec:objections} addresses edge cases and objections. Section~\ref{sec:conclusion} concludes.
+
+\section{Projectible profiles and grammatical categories}\label{sec:hpc}
+
+The proposal to treat deitality as a projectible grammatical profile requires justification. The framework is Boydian in motivation: it rejects necessary-and-sufficient definitions and asks what classifications let us infer. But it also incorporates a later discipline from natural-kind theory: stability, network order, maintenance, and strict homeostasis are not the same achievement.
+
+\subsection{From essence to projectibility}
+
+The motivating contrast comes from the species problem. Essentialist definitions of species sought a set of necessary and sufficient conditions for membership: morphological similarity, ability to interbreed, shared ancestry, or some other privileged property. Each candidate failed. Ring species can interbreed with adjacent populations but not with distant ones. Asexually reproducing organisms do not interbreed at all. Morphologically similar organisms can be reproductively isolated. The natural world resisted any single timeless cutoff \parencite{mayr1942}.
+
+Boyd's solution was to reject essentialism. A species is not defined by a single property or fixed list of properties. It is characterized by a cluster of properties~-- morphological, genetic, behavioural~-- that co-occur more often than chance would predict. What matters for scientific practice is projectibility: observing some parts of the profile licenses expectations about others \parencite{boyd1991,boyd1999}. The category is useful because it fits inferential practice to real causal structure, not because it mirrors a timeless essence.
+
+This gives three commitments that are useful for grammar. First, the category has a contingent property profile: a family of properties that statistically co-occur. Second, the profile has enough order or maintenance to keep the co-occurrence from being accidental. Third, the profile is projectible for some analytical purpose. Because these conditions are not essentialist, the resulting category can show graded membership, prototype effects, and historically mobile boundaries without collapsing into arbitrariness.
+
+\subsection{Separating stability, maintenance, and control}
+
+The word \term{homeostatic} should not do more work than the evidence warrants. In the HPC-derived debate, a profile can be stable without a known maintainer; it can be network-ordered without feedback; and it can be maintained without being a corrective-control system \parencite{slater2015,khalidi2013,khalidi2018nodes,onishi2022}. A stricter diagnostic therefore asks five questions in order \MetaphysicsSelfCite{}:
+
+\begin{enumerate}[label=(\roman*)]
+\item What is the projection target?
+\item What stable profile supports that projection?
+\item What ordering relations explain why the projection is not accidental?
+\item What maintains the profile across relevant timescales?
+\item Is the maintainer a corrective-control process that preserves a higher-scale relation through lower-scale variation?
+\end{enumerate}
+
+This paper does not need the fifth step. The central linguistic claim is not that English determinatives form a homeostatic control system. It is that deitality is a projectible grammatical profile: once a determiner or construction is located in the profile, we can infer otherwise untested behaviour across diagnostics, semantic mismatches, dialectal frames, and acquisition.
+
+\subsection{Why grammatical categories need this framework}
+
+The parallel to linguistics is direct. Just as biologists sought an essence for species, linguists have sought one for definiteness. Decades of research have tried to define \enquote{definite noun phrase} by semantic essence~-- uniqueness \parencite{russell1905,hawkins1978} or familiarity \parencite{christophersen1939,heim1982}. But counterexamples proliferate. Weak definites like \textit{listen to the radio} use \textit{the} without uniqueness \parencite{carlsonsussman2005,aguilarguevarazwarts2010}. Generic definites like \textit{The lion is noble} refer to kinds, not individuals \parencite{carlson1977,krifka2004}. Cross-linguistically, definite articles appear in contexts where their semantic contribution seems redundant or absent \parencite{lyons1999}.
+
+These are not peripheral exceptions. They are systematic patterns that suggest the category lacks a simple essence. The attempt to define a morphosyntactic object~-- the class of noun phrases marked with definite morphology~-- using purely semantic criteria has produced a category that does not align with the empirical facts.
+
+The projectibility-first framework offers a way forward. We can characterize deitality and definiteness as distinct profiles and ask what each lets us infer. The strong correlation between them is real and grounded in grammar, discourse, history, and acquisition, but the profiles can come apart in systematic ways \parencite{FrancisMichaelis2003}. The subsequent sections develop this account: §\ref{sec:semantic} characterizes definiteness as the relevant semantic profile, §\ref{sec:diagnostics} establishes deitality through convergent diagnostics, and §\ref{sec:mechanisms} shows how deitality supports predictions across constructions, dialects, and developmental stages.
+
+This move has precedent. Prototype theory in cognitive linguistics has long recognized that categories have graded structure \parencite{rosch1978,lakoff1987}. But prototype theory often stops at similarity structure. Boyd's HPC framework adds a causal account of why certain properties cluster and why that clustering supports reliable inferences beyond the data that first identified it.
+
+The framework has already been applied to linguistic phenomena. \textcite{miller2021} argues that word-kinds like \textit{table} and \textit{Paris} are HPCs, defined by clusters of phonological, orthographic, and semantic properties maintained by cognitive and social mechanisms. This paper extends that style of analysis from lexical ontology to grammatical categories, but with a stricter vocabulary. Where Miller asks what makes tokens instances of the same word-kind, I ask what distinguishes deital from non-deital determiners~-- why \textit{the}, \textit{this}, and genitives pattern together distributionally while \textit{a}, \textit{some}, and \textit{many} form a contrasting profile.
+
+\section{Definiteness as a semantic profile}\label{sec:semantic}
+
+Before characterizing deitality, I need to clarify what definiteness is~-- semantically and pragmatically~-- so it is clear what deitality is not. The literature presents two major traditions: uniqueness theories and familiarity theories. Rather than adjudicating between them, I argue that both capture important properties in the definiteness profile.
+
+Uniqueness theories originate with Russell \parencite{russell1905}. A definite description \textit{the F} presupposes that exactly one entity satisfies \textit{F} in the contextually relevant domain. Later work refined this to allow pragmatic restriction: uniqueness holds relative to a \enquote{P-set} or shared frame of reference \parencite{hawkins1978}. This approach handles \enquote{larger situation} uses like \textit{the sun} and anaphoric uses where prior discourse has narrowed the context to a single salient entity.
+
+Familiarity theories stem from Christophersen and were formalized by Heim \parencite{christophersen1939,heim1982}. Definite noun phrases are subject to a familiarity condition: they must refer to an entity already established in the discourse model. Indefinites, by contrast, introduce new referents. This framework excels at explaining discourse anaphora, where a definite's felicity depends directly on having a linguistic antecedent.
+
+Both theories have problems. Familiarity is not necessary~-- \textit{the first person on Mars} can be used felicitously even when the referent is discourse-new. Uniqueness is not sufficient~-- in contexts with two familiar but non-unique entities, neither \textit{the N} works smoothly. And weak definites challenge both: \textit{go to the hospital} uses \textit{the} when the hospital is neither uniquely specified nor discourse-familiar \parencite{Abbott2004,Birner2013}.
+
+I propose that uniqueness and familiarity are both properties in the definiteness profile, along with anaphoric recoverability and, more broadly, identifiability. These properties co-tend because of discourse-pragmatic pressures: common ground management makes unique entities easier to track; anaphoric devices rely on familiarity; topics bias toward identifiable referents. But the co-occurrence is statistical, not absolute.
+
+This explains the theoretical debate. Uniqueness and familiarity theorists are not discovering competing essences. They are mapping different regions of the same semantic profile. The properties overlap heavily~-- a discourse-old, unique referent satisfies both~-- but they dissociate in predictable ways. Weak definites have identifiability without token-level uniqueness. Cataphoric definites have uniqueness without prior familiarity. The semantic notion of definiteness is therefore profile-like rather than essence-like.
+
+What matters here is this: definiteness is a profile centred on interpretation~-- how referents are mentally represented and tracked in discourse. The core properties are identifiability, uniqueness, and anaphoric recoverability. The profile also includes a morphological tendency: definite referents are strongly associated with deital marking. This association is maintained by discourse efficiency and grammaticalization history, creating substantial overlap with deitality. The next sections establish the deital profile through convergent diagnostics (§\ref{sec:diagnostics}) and identify the distinct processes maintaining it (§\ref{sec:mechanisms}). The imperfect alignment between profiles~-- cases where definiteness and deitality dissociate~-- is the focus of §\ref{sec:cases}.
+
+\section{Diagnostics for deitality}\label{sec:diagnostics}
+
+I characterize deitality as a structural profile whose core comprises distributional restrictions but also includes a strong tendency to mark semantically definite referents. This section develops four core diagnostics that target the distributional restrictions: existential \textit{there}, partitive \textit{of}, identificational hosting, and \textit{one}-substitution. These diagnostics establish the morphosyntactic spine of the profile; §\ref{sec:mechanisms} explains how grammaticalization and other maintainers link this spine to definiteness-marking. Each diagnostic is construction-general, targets the determiner itself, and admits controllable neutralizations.
+
+\subsection{Existential \textit{there}}
+
+The definiteness effect in existential \textit{there} constructions is well-documented \parencite{milsark1977,McNally2011}. Under neutral prosody, deital determiners resist the pivot position:
+
+\ea 
+\label{ex:there-neutral}
+    \ea \textit{\textsuperscript{*}There is the key on the table.}
+    \ex \textit{\textsuperscript{*}There are those books I mentioned.}
+    \ex \textit{There is a key on the table.} (non-deital, acceptable)
+    \z
+\z
+
+The effect is sensitive to prosody: list/presentational intonation can license otherwise dispreferred pivots \parencite{BirnerWard1998}:
+
+\ea 
+\label{ex:there-list}
+    \ea \textit{There's THAT book again.}
+    \ex \textit{Well, there's the KEYS, the wallet...}
+    \z
+\z
+
+\ifdefined\blindsubmission
+A reader noted that the initial \textit{there} in such cases can be heard as locative rather than expletive, which makes the intended presentational reading harder to obtain.
+\else
+Cris Chatterjee noted that the initial \textit{there} in such cases can be heard as locative rather than expletive, which makes the intended presentational reading harder to obtain.
+\fi
+
+I treat this as a controllable neutralization: under neutral prosody, deital determiners resist the pivot position; marked prosody can ameliorate the effect. The diagnostic is therefore calibrated to neutral prosody.
+
+\textbf{Important calibration}: This diagnostic~-- and indeed each diagnostic in this section~-- is calibrated to \textit{neutral prosody and non-narrative frames}. Specialized constructions like narrative-presentational \textit{There was this guy...} have their own licensing conditions (see §\ref{sec:cases}) and do not constitute counterevidence to the basic distributional pattern.
+
+\subsection{Partitive \textit{of}}
+
+In true partitive constructions~-- \textit{X of Y} with subset semantics~-- the \textit{Y} complement must be definite-like \parencite{Barker1998,Hoeksema1996}:
+
+\ea 
+\label{ex:part-good}
+    \ea \textit{Two\upslash several\upslash many of the students left.}
+    \ex \textit{Two\upslash several\upslash many of these\upslash my students left.}
+    \z
+\z
+
+\ea 
+\label{ex:part-bad}
+*\textit{Two\upslash several\upslash many of some students left.}
+\z
+
+This selectional restriction is robust and not ameliorated by prosody. Attempts to use weak \textit{Y} are either rejected outright or reanalyzed as measure/fraction constructions (\textit{half of a cake}), which have different semantics.
+
+The \textit{Y} slot is what matters. Elements in \textit{X}~-- including quantifiers like \textit{all} or \textit{both} when they appear as modifiers~-- are irrelevant to this diagnostic.
+
+\subsection{Identificational hosting}
+
+Deital determiners are preferred hosts for nonrestrictive modification, topics, and specificational subjects. Weak determiners are degraded unless coerced to specific readings \parencite{Lambrecht1994}:
+
+\ea 
+\label{ex:host-good}
+    \ea \textit{The\upslash this\upslash John's book, which I bought yesterday, is excellent.}
+    \ex \textit{As for the\upslash this\upslash John's report, I filed it.}
+    \ex \textit{The culprit is John.}
+    \z
+\z
+
+\ea 
+\label{ex:host-bad}
+    \ea \textsuperscript{??}\textit{A book, which I bought yesterday, is excellent.}
+    \ex \textsuperscript{??}\textit{As for a report, I filed it.}
+    \ex \textsuperscript{??}\textit{A culprit is John.}
+    \z
+\z
+
+The degradation correlates with information structure. Identificational constructions presuppose that the referent is already salient or identifiable to the hearer. Weak indefinites introduce new referents and clash with this presupposition.
+
+\subsection{\textit{One}-substitution}
+
+Non-deital determiners freely allow bare anaphoric \textit{one} across clauses:
+
+\ea 
+\label{ex:one-weak}
+\textit{I bought a red pen and you bought one too.}
+\z
+
+Deital packages resist bare \textit{one} in the same configuration:
+
+\ea 
+\label{ex:one-strong}
+*\textit{I bought the\upslash this\upslash my red pen and you bought one too.}
+\z
+
+Determiner + \textit{one} (\textit{this one}, \textit{the one}) is grammatical but represents a different construction: \textit{one} is a noun with its own determiner, not a determinative phrase in fused-determiner--head function \parencite[332--333]{HuddlestonPullum2002}. I exclude this construction from the diagnostic.
+
+This test is narrower than the others and more subject to dialectal variation. I treat it as a corroborating cue rather than a primary diagnostic.
+
+\subsection{Summary: Converging evidence for a grammatical profile}
+
+These four diagnostics converge on a morphosyntactic profile. Prototypical deital determiners resist existential pivots, license partitive \textit{Y}, host identificational constructions naturally, and disprefer bare \textit{one}-substitution. Prototypical non-deital determiners show the opposite pattern. No single diagnostic defines the profile. No diagnostic has metaphysical privilege; no property is necessary, no set sufficient. What matters is convergence across multiple independent tests~-- a profile that essentialist accounts cannot capture.
+
+In applying the tests (see Appendix~\ref{sec:inventory}), many determinatives show partial membership. Items like \textit{each}, \textit{every}, \textit{all}, and \textit{both} resist existential pivots (patterning deitally) but fail other diagnostics (patterning non-deitally). This is exactly what a projectible-profile account predicts: graded membership reflecting different degrees of property convergence. The diagnostic convergence defines a space where \textit{the} and demonstratives occupy the prototypical center while other items show gradient participation.
+
+This property pluralism is central to the framework: just as biological species are characterized by multiple co-tending traits (morphology, genetics, behaviour) with none metaphysically prior, deitality is characterized by multiple co-tending distributional properties with none foundational. The diagnostics are equally valid cues to profile membership.
+
+That said, not all diagnostics are equally reliable in practice. Some show more cross-linguistic stability; some resist dialectal variation better; some apply more broadly. The \textit{one}-substitution test, for instance, is more subject to dialectal variation than partitive \textit{Y}-selectivity, making it a less robust probe in fieldwork. But both target real properties of the deital profile. These are empirical differences in diagnostic utility, not metaphysical differences in the properties themselves.
+
+Importantly, these diagnostics target distributional behaviour rather than semantic contribution. This does not mean the deital profile lacks semantic tendencies~-- it correlates strongly with identifiability, wide scope, and anaphoric tracking. But these tendencies are part of the profile, not necessary conditions for membership. A determiner can be deital while contributing non-prototypical semantics: weak definites lack token-level uniqueness; generic definites refer to kinds. The morphosyntactic profile is what remains stable across this semantic variation.
+
+Section~\ref{sec:mechanisms} identifies the processes that create and maintain this diagnostic profile.
+
+\section{Maintainers of the deital profile}\label{sec:mechanisms}
+
+The central claim of a projectible-profile account is that property convergence is not accidental. For deitality, five processes operate at distinct timescales. They maintain the four distributional restrictions and the strong correlation with definiteness-marking: grammaticalization creates the profile; acquisition, interactive alignment, prestige selection, and iterated transmission maintain it across individuals, conversations, communities, and generations. For definiteness, the relevant pressures are discourse-pragmatic: information structure and common ground management create correlations among identifiability, uniqueness, and anaphoric recoverability, while also reinforcing the tendency for definite referents to be marked deitally.
+
+The previous section established four diagnostic properties that converge to define the deital profile. This section identifies five maintainers operating at distinct timescales, shows how they interact, and derives falsifiable predictions about synchronic grammar.
+
+\subsection{Five maintainers across timescales}\label{subsec:five-mechanisms}
+
+\subsubsection{Grammaticalization: Creating the profile (phylogenetic, centuries)}\label{subsec:gram}
+
+Cross-linguistically, definite articles arise primarily from demonstratives \parencite{greenberg1978,diessel1999}. As a demonstrative grammaticalizes~-- weakening phonologically and broadening functionally~-- it does not shed its distributional properties. It drags them along.
+
+Demonstratives inherently show many properties of the deital profile. They are deictic, which makes them poor candidates for introducing discourse-new referents (hence resistance to existential \textit{there}). They are referential and often presuppositional, which makes them natural hosts for identificational constructions. They pattern with definites in partitive constructions cross-linguistically.
+
+When a demonstrative becomes an article, these distributional tendencies persist. The resulting article inherits the morphosyntactic frame even as its semantic function generalizes from pure deixis to broader identifiability marking. This is property dragging: grammaticalization preserves formal behaviour while semantic function shifts.
+
+English \textit{the} shows exactly this pattern. Historically derived from a demonstrative, it resists existential pivots, licenses partitive \textit{Y}, and hosts identificational constructions~-- all properties traceable to its deictic source. Weak definites, where \textit{the} appears without uniqueness, represent cases where the morphosyntactic frame has outlived the original semantic restriction.
+
+The grammaticalization account predicts that items sharing a deictic source should share distributional properties. English offers phonological evidence for this prediction. All /ð/-initial determinatives are deital: \textit{the}, \textit{this}, \textit{that}, \textit{these}, \textit{those}. This clustering is not universal~-- other function words like \textit{then}, \textit{than}, \textit{though} begin with /ð/ without being determinatives, and many deital items like genitives lack it entirely. But within the determinative class, /ð/ marks a family of historically related forms, all derived from Germanic demonstratives. The phonological property clusters with the distributional ones because both reflect common ancestry. Property dragging operates on bundles: when demonstratives grammaticalize, they carry along not just distributional behaviour but phonological shape.
+
+\subsubsection{First language acquisition: Filtering the hypothesis space (ontogenetic, childhood)}
+
+The grammatical system must be acquired by each new generation. The acquisition process acts as a filter: only stable, learnable patterns survive transmission.
+
+Children acquire deital determiners early, often overgeneralizing \textit{the} to contexts where adults use \textit{a} \parencite{maratsos1976,rozendaalbaker2008}. This is not semantic confusion. It is structural success. Children identify a high-frequency form (\textit{the}) plus its distributional frame~-- appears with familiar referents, resists existential contexts, patterns with genitives~-- and apply it broadly before refining the semantic conditions.
+
+Critically, they acquire the morphosyntactic profile before mastering the full semantic range. They know \textit{the} appears in certain structural positions (determiner slot, partitive complement) before they know exactly when referents count as unique or familiar. This creates a bootstrapping dynamic: the distributional frame helps learners infer semantic function, and vice versa.
+
+This acquisitional filtering maintains the profile's stability. Each generation re-creates the deitality category based on distributional evidence. The profile~-- pivot resistance, partitive licensing, identificational hosting~-- is learned as a package, not as independent facts. When children overgeneralize, they extend the entire package. When they refine, they adjust semantic conditions while preserving the morphosyntactic frame.
+
+\subsubsection{Interactive alignment and repair: Real-time stabilization (microgenetic, seconds to minutes)}
+
+In conversation, speakers converge on syntactic frames and repair misalignments \parencite{PickeringGarrod2004}. When a speaker produces a deital determiner in a dispreferred context~-- say, \textit{There's the problem} under neutral prosody~-- hearers may flag the anomaly through correction, hesitation, or clarification requests. This feedback stabilizes local distributional patterns, but it does not by itself show a single control system maintaining deitality as a whole.
+
+The maintainer operates largely below conscious awareness. Speakers do not explicitly reason about partitive selectional restrictions; they simply experience discomfort when hearing \textit{*two of some students} and either repair the utterance or signal non-comprehension. Over thousands of conversational exchanges, this microgenetic pruning reinforces the profile by penalizing violations and rewarding canonical patterns.
+
+\subsubsection{Prestige-weighted selection: Social stratification (sociogenetic, decades)}
+
+High-status variants spread faster through communities \parencite{labov2001,eckert2000}, pushing some constructions toward categorical bans while allowing sociolinguistic stratification at gradient margins.
+
+For deitality, this maintainer explains why some weak definite frames (British \textit{in hospital}) become dialectally entrenched while others never stabilize. Prestige dynamics can override frequency: highly frequent non-standard patterns (\textit{them books} in some dialects) remain marked because standard \textit{those books} carries social prestige. Conversely, low-frequency prestige forms can resist elimination.
+
+The maintainer does not create the deital profile~-- grammaticalization and acquisition do that~-- but it shapes which variants survive community transmission and which get filtered out. This explains why structural bans often correlate with social evaluation even when the underlying constraint is cognitive or morphosyntactic.
+
+\subsubsection{Iterated cultural transmission: Multi-generational filtering (phylogenetic, generations)}
+
+The transmission bottleneck amplifies learnability biases and filters out mappings that exceed processing or memory constraints \parencite{kirby2014}. Each generation learns the language from finite input, necessarily discarding patterns that are too complex, too rare, or too inconsistent to acquire reliably.
+
+This multi-generational ratchet explains why structural bans converge across dialects even as surface patterns diverge. Determiner extraction (\textit{*Which did you buy car?}) is categorically rejected in all English dialects because the underlying constraint~-- no stranding of determiners~-- is simple, learnable, and stable under transmission. Weak definite frames, by contrast, show dialectal variation because they are conventionalized idioms: learnable but not structurally forced.
+
+Iterated transmission also explains the phonological clustering noted in §\ref{subsec:gram}. The /ð/-initial family persists not because of any functional advantage but because the phonological pattern is stable under transmission. Children acquiring English identify the profile and reproduce it, generation after generation.
+
+\subsection{Causal architecture: How the maintainers interact}
+
+
+Figure~\ref{fig:deital-maintainers} schematizes how the five processes stabilize the deital profile. Grammaticalization creates the initial bundle; four maintainers preserve it simultaneously at different timescales.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  node distance = 10mm and 18mm,
+  origin/.style = {rectangle, draw, rounded corners,
+                   minimum width=40mm, align=center, text depth=0.5ex,
+                   fill=blue!20, minimum height=12mm},
+  mech/.style = {rectangle, draw, rounded corners,
+                 minimum width=38mm, align=center, text depth=0.5ex,
+                 fill=blue!10, minimum height=16mm},
+  cluster/.style = {rectangle, draw, rounded corners, thick,
+                    minimum width=42mm, minimum height=32mm, align=center},
+  prim/.style = {->, >=latex, thick},
+  sec/.style = {->, dashed, >={stealth}}
+]
+
+% Top: origin process
+\node[origin] (gram) at (0,0) {Grammaticalization\\(phylogenetic, centuries)};
+
+% Middle: Property profile being maintained
+\node[cluster, below=20mm of gram] (props) {
+  \textbf{Deital profile}\\[2mm]
+  \small
+  partitive \textit{Y}-licensing\\
+  \textit{There}-resistance\\
+  Identificational hosting\\
+  \textit{One}-substitution blocking
+};
+
+% Left: Maintenance processes
+\node[mech, left=of props, yshift=12mm] (iter) {Iterated\\transmission\\(generations)};
+\node[mech, left=of props, yshift=-12mm] (prestige) {Prestige\\selection\\(decades)};
+
+% Right: Maintenance processes
+\node[mech, right=of props, yshift=12mm] (align) {Interactive\\alignment\\(seconds--minutes)};
+\node[mech, right=of props, yshift=-12mm] (acq) {First language\\acquisition\\(childhood)};
+
+% Grammaticalization creates the bundle
+\draw[prim] (gram.south) to node[right, font=\scriptsize] {creates} (props.north);
+
+% Four maintenance processes (all simultaneous)
+\draw[prim] (iter.east) to (props.west |- iter.east);
+\draw[prim] (prestige.east) to (props.west |- prestige.east);
+\draw[prim] (align.west) to (props.east |- align.west);
+\draw[prim] (acq.west) to (props.east |- acq.west);
+
+% Feedback: stable profile enables acquisition
+\draw[sec, rounded corners] (props.south) to [out=270, in=270] 
+  node[below, font=\scriptsize] {stabilizes} (acq.south);
+
+\end{tikzpicture}
+\caption{Processes stabilizing the deital profile. Grammaticalization (top) created the initial property bundle through demonstrative-to-article pathways. Four processes maintain the profile simultaneously at different timescales: iterated transmission filters for learnability across generations; prestige-weighted selection shapes social distribution over decades; interactive alignment maintains patterns in real-time conversation; first language acquisition reproduces the profile in each generation. The profile's stability feeds back to enable successful acquisition (bottom), creating a self-reinforcing cycle. Solid arrows show primary causation; dashed arrow shows feedback.}
+\label{fig:deital-maintainers}
+\end{figure}
+
+The architecture reveals why deitality is stable yet variable. Grammaticalization creates the initial property bundle through demonstrative-to-article pathways. Acquisition filters this input, preserving only learnable patterns. Interactive alignment maintains the profile in real-time conversational practice. Prestige selection shapes which variants survive socially. Iterated transmission eliminates patterns that cannot survive the multi-generational bottleneck.
+
+The feedback loop at the bottom of Figure~\ref{fig:deital-maintainers} is critical. Once the profile stabilizes, it becomes the target of acquisition: children learn the stable pattern, which reinforces its stability in the next generation. This positive feedback explains why the deital profile persists despite constant pressure from analogy, frequency effects, and contact-induced change.
+
+\subsection{Why deitality and definiteness correlate imperfectly}\label{subsec:autonomy}
+
+Grammaticalization and acquisition explain why deitality exists as a stable morphosyntactic profile. But why does it correlate with definiteness? And why is the correlation not perfect?
+
+The correlation arises because the deictic sources of articles were themselves sensitive to information structure. Demonstratives mark salient, often identifiable referents. As they grammaticalize, this functional tendency becomes conventionalized. Speakers and hearers coordinate on using the article for identifiable referents because that is what the form conventionally signals.
+
+This coordination is maintained by communicative efficiency. Speakers remember frequent pairings~-- \textit{the} plus unique/familiar referents~-- and hearers expect them. When speakers violate expectations, hearers accommodate by adjusting their domain of evaluation, coercing to specific readings, or reanalyzing the structure. This creates a stable equilibrium where form and function align statistically.
+
+But the correlation is not perfect because grammaticalization preserves formal residue. Weak definites like \textit{take the bus} reflect conventionalized frames where \textit{the} appeared because of institutional or habitual association, and that morphosyntactic pattern persisted even as the semantic contribution remained indefinite. The distributional residue~-- appears with \textit{the}, resists modification, allows only certain verb-noun pairs~-- is the grammaticalized fossil of a construction, not of a semantic feature.
+
+The mismatch also reflects constructional autonomy. Once a morphosyntactic pattern is established, it can be recruited for new functions. \textit{The poor}, \textit{the unknown} as fused modifier--head NPs use \textit{the} to signal definiteness at the constructional level, not the lexical level. The frame itself becomes meaningful, semi-independent of the article's core function.
+
+\subsection{Projectibility tests: Evidence that deitality is a useful category}
+
+A category earns its place by supporting inductive and explanatory practice. Deitality earns that place when partial evidence about its profile lets us predict untested behaviour. Recognizing a deital profile should tell us something new about constructions, dialects, and learning paths.
+
+\subsubsection{Test 1: Residual behaviour under semantic mismatch}
+
+Constructional mismatches provide the sharpest test. Once a construction recruits deital morphology while relaxing canonical definiteness, the projectibility-first account predicts selective residue rather than global weakening. Narrative \mention{this} is the clearest case. If \textit{There was this guy at the door} reflects constructional recruitment of deital form, we should expect the construction to license narrative presentation while preserving other deital restrictions:
+\begin{itemize}
+\item \textit{There was this guy at the door...} remains acceptable because the construction packages narrative presentation with deital morphology.
+\item \textsuperscript{*}\textit{two of this guy} and \textsuperscript{*}\textit{two of these guys} remain bad on the narrative reading because partitive \textit{Y}-selection is still deital.
+\item \textsuperscript{*}\textit{I met this guy and you met one too} remains bad because bare \textit{one}-substitution still tracks the deital profile.
+\end{itemize}
+That is genuine projectibility. A semantics-first analysis identifies discourse-new reference. The deitality analysis goes further and predicts which parts of the morphosyntactic profile should survive that semantic mismatch.
+
+The same logic applies to weak definites and generic definites. Once they are identified as semantically unusual but morphosyntactically deital, we should expect residual deital behaviour in diagnostics tied to constructional or selectional structure, not a free-for-all of indefinite behaviour. The category pays off because it supports those selective expectations.
+
+\subsubsection{Test 2: Pathway-conditioned distribution}
+
+If deitality is maintained by the processes in §\ref{subsec:five-mechanisms}, then grammaticalization pathway and maintenance regime should shape where the profile holds together and where it loosens. The prediction is conditional.
+
+\textbf{Convergence prediction}: acquisition and iterated transmission should make properties travel together more reliably than idiomatic frames tied to prestige or local convention.
+
+\textbf{Divergence prediction}: institutional frames, register-sensitive uses, and socially marked constructions should vary more than core selectional restrictions.
+
+English already points in this direction. Dialects differ over weak definite frames such as \textit{in hospital} versus \textit{in the hospital}, but they do not vary freely over core determiner syntax. The projectibility-first account predicts exactly that shape of variation because socially maintained frames are looser than selectional constraints reproduced in acquisition.
+
+Cross-linguistically, the stronger claim is also conditional: when article systems arise from demonstratives, they should be better candidates for deital-style clustering than systems with a different diachronic source or no article system at all. It predicts family resemblances in which some properties co-travel and others separate under pressure.
+
+\subsubsection{Test 3: Acquisitional trajectory prediction}
+
+If the maintainers in §\ref{subsec:five-mechanisms} are correctly identified, child language acquisition should show specific developmental asymmetries. This is another projectibility test: the category should let us infer a learning path from the internal organization of the profile.
+
+\textbf{Prediction 3a}: Children should master distributional restrictions (where \textit{the} can appear syntactically) before semantic restrictions (when to use it pragmatically).
+
+\textbf{Prediction 3b}: Children should overgeneralize \textit{the} to semantically inappropriate contexts while respecting morphosyntactic constraints.
+
+\textbf{Prediction 3c}: Children should master syntactic constraints earlier than discourse-pragmatic ones. Partitive \textit{Y}-selectivity should precede existential pivot resistance under neutral prosody.
+
+Existing acquisition data support 3a and 3b \parencite{maratsos1976,rozendaalbaker2008}. Prediction 3c remains to be tested systematically, but the logic is straightforward: syntactic selectional restrictions do not yield to prosodic manipulation (see §\ref{sec:prosody}), so children cannot use prosody as a repair strategy. Discourse-pragmatic constraints do yield to prosody, giving children a fallback. The predicted asymmetry follows from the different causal bases of the constraints.
+
+\subsection{Falsifiable predictions about synchronic grammar}\label{sec:predictions}
+
+The maintainers generate specific predictions about how the synchronic grammar behaves under manipulation. These predictions are the analytical payoff of the category. They distinguish this account from alternatives by targeting the interaction between morphosyntax, prosody, semantics, and development. Each prediction is falsifiable and testable.
+
+\subsubsection{Prediction 1: Prosodic manipulation dissociation}\label{sec:prosody}
+
+\textbf{Claim}: Prosody should selectively rescue existential pivots but not partitive complements.
+
+\textbf{Logic}: Prosody can rescue what discourse creates; prosody cannot rescue what syntax demands. Existential pivots yield to marked intonation because their constraint is discourse-pragmatic~-- neutral prosody enforces information-structural requirements, but contrastive or list prosody can override those requirements. Partitive complements resist all prosodic manipulation because their constraint is grammatical~-- the construction selects for deital complements as a syntactic requirement, and prosody does not alter syntactic categories.
+
+\textbf{Test cases}:
+\ea
+    \ea \textit{\textsuperscript{*}There is the key on the table.} (neutral prosody: unacceptable)
+    \ex \textit{Well, there's THE KEY, the wallet...} (list prosody: acceptable)
+    \ex \textit{\textsuperscript{*}Two of some students passed.} (neutral prosody: unacceptable)
+    \ex \textit{\textsuperscript{*}TWO of SOME students passed.} (contrastive prosody: still unacceptable)
+    \z
+\z
+
+\textbf{Falsification condition}: If contrastive prosody rescues partitive complements to the same degree it rescues existential pivots, the maintainer-based explanation fails. The dissociation is predicted by the different causal bases (discourse-pragmatic vs. syntactic) of the two constraints.
+
+\subsubsection{Prediction 2: Specificity forcing partial amelioration}\label{subsubsec:specific}
+
+\textbf{Claim}: Forcing specificity should improve indefinites in identificational environments without fully licensing them.
+
+\textbf{Logic}: Making an indefinite semantically specific does not change its non-deital morphosyntactic profile. The improvement should be measurable but fall short of canonical deital hosts because the morphosyntactic mismatch persists.
+
+\textbf{Test cases}:
+\ea
+    \ea \textit{\textsuperscript{??}A book, which I bought yesterday, is excellent.}
+    \ex \textit{\textsuperscript{?}A certain book, which I bought yesterday, is excellent.} (improved but still marked)
+    \ex \textit{The\upslash this book, which I bought yesterday, is excellent.} (fully acceptable baseline)
+    \z
+\z
+
+\textbf{Measurement}: Acceptability ratings should show: baseline indefinite < specific indefinite < deital determiner. If specific indefinites reach deital baseline acceptability, the morphosyntactic/semantic distinction collapses. If they show no improvement, semantic contribution is irrelevant to hosting. Partial improvement confirms that both morphosyntactic form and semantic contribution matter.
+
+\subsubsection{Prediction 3: Dialectal frame preservation}
+
+\textbf{Claim}: Dialectal variation that drops \textit{the} in institutional frames should preserve deital patterning when definiteness is supplied by other means.
+
+\textbf{Logic}: This tests whether the constructional frame itself is a grammaticalized fossil that selects for deitality, regardless of how deitality is realized. If the frame itself encodes a deital requirement, then supplying deitality through demonstratives or genitives should satisfy that requirement even in dialects where the article is optional.
+
+\textbf{Test cases}:
+\ea
+    \ea British English: \textit{She is in hospital.} (frame allows bare noun)
+    \ex American English: \textit{She is in the hospital.} (frame requires deital article)
+    \ex Prediction: Both dialects accept \textit{She is in this hospital}, patterning with the deital version because the frame's underlying requirement is met.
+    \z
+\z
+
+\textbf{Falsification condition}: If British speakers reject \textit{this hospital} in the institutional frame, the frame does not select for deitality~-- it simply permits bare nouns. If both dialects accept \textit{this hospital}, the frame's deital requirement is confirmed.
+
+\subsubsection{Prediction 4: Acquisitional asymmetries}
+
+\textbf{Claim}: Children should show developmental asymmetries reflecting the maintainers at work.
+
+\textbf{Logic}: If the profile is maintained by acquisition, its internal structure should be visible in the learning path. Children should master hard syntactic constraints early because these lack prosodic repair paths. Softer discourse-pragmatic constraints should be mastered later.
+
+\textbf{Test cases}:
+\ea
+    \ea Children should correctly reject ungrammatical partitives like \textit{*two of some students} early (a hard syntactic rule).
+    \ex Children may over-accept deitals in existential \textit{there} contexts, especially with list or recurrence intonation, before mastering the adult-like neutral-prosody constraint (a softer, discourse-pragmatic rule).
+    \z
+\z
+
+\textbf{Measurement}: Longitudinal acquisition studies should show partitive violations rejected earlier (by age X) than existential violations under neutral prosody (by age Y > X). The gap reflects the availability of prosodic rescue for existentials but not partitives.
+
+\subsection{Distinguishing the projectibility-first account from alternatives}
+
+These four predictions also separate the projectibility-first account from nearby alternatives.
+
+\textbf{A semantic account} expects prosodic rescue to track referent identifiability more evenly across constructions.
+
+\textbf{A purely distributional account} predicts flatter acquisition profiles because all restrictions are learned in the same format.
+
+\textbf{A simple feature account} predicts all-or-nothing specificity effects rather than partial amelioration.
+
+\textbf{An arbitrary dialect account} predicts local frame differences without deeper preservation of the profile.
+
+The predictions target the interaction between morphosyntax, prosody, semantics, and development~-- exactly what the diachronic maintainers predict. They are testable through experimental work (acceptability ratings, prosodic manipulation), corpus studies (dialectal patterns), and acquisition research (developmental timelines). The projectibility-first account does not just accommodate existing data; it generates novel empirical commitments.
+
+
+
+\section{Case studies: Weak and generic definites}\label{sec:cases}
+
+The explanatory power of the account is best demonstrated by long-standing puzzles. This section uses weak definites, generic definites, and narrative \mention{this} as stress tests for projectibility. Once a construction is identified as deital, the analysis should let us predict which morphosyntactic residue survives when canonical definiteness drops out \parencite{FrancisMichaelis2003}. These constructions show the distributional core of the deital profile (the four diagnostic properties from §\ref{sec:diagnostics}) but lack the typical definiteness-marking function. They are predictable outcomes when overlapping profiles are maintained by partly independent processes.
+
+\subsection{Weak definites}
+
+So-called weak definite constructions like \textit{take the bus}, \textit{listen to the radio}, and \textit{go to the hospital} have troubled semantic theories for decades \parencite{carlsonsussman2005,aguilarguevarazwarts2010}. The puzzle is how \textit{the} appears without unique or familiar referents. Semantic theories invoke incorporation, kind reference, or minimal situations to preserve the uniqueness analysis. But these mechanisms struggle to explain the full pattern: extreme sensitivity to modification, strict lexical restrictions, and enriched meanings (\textit{go to the hospital} = `seek medical treatment').
+
+The projectibility-first account reframes the puzzle. Weak definites show the distributional restrictions that form the core of the deital profile~-- they pattern with \textit{the} and demonstratives on the relevant diagnostics. But they lack the definiteness-marking function that typically accompanies those restrictions. They are pragmatically conventional. The dissociation is possible because distributional restrictions and definiteness-marking are maintained by partially independent processes.
+
+But they do not contribute token-level uniqueness or familiarity. They are simply deital but indefinite. \textit{Take the bus} does not presuppose a unique, identifiable bus; it evokes a conventional activity type. The morphosyntactic frame~-- verb + \textit{the} + noun in this construction~-- is stable and deital, but the semantic contribution is non-unique reference. This is the form-meaning split made maximally explicit.
+
+The frame does encode stereotypicality and conventionalization, which creates a weak form of identifiability: hearers recognize the activity type even when the token referent is unspecified. But this falls short of the definiteness profile's core properties~-- token uniqueness and anaphoric recoverability. Weak definites occupy the gap: morphosyntactically deital, semantically indefinite, pragmatically conventional.
+
+On this view, this is expected. Grammaticalization preserves morphosyntactic frames while semantic function shifts. Weak definites represent conventionalized constructions where \textit{the} appeared because of institutional or habitual association, and that morphosyntactic pattern persisted even as the semantic contribution remained indefinite. The distributional residue~-- appears with \textit{the}, resists modification, allows only certain verb-noun pairs~-- is the grammaticalized fossil of a construction, not of a semantic feature.
+
+Weak definites do not pattern uniformly across all diagnostics. In partitive constructions, \textit{two of the bus} is odd on the weak reading. This follows from the causal ranking: partitive \textit{Y}-selectivity is syntactic and does not yield to constructional pressure. The weak reading is available only when the frame itself licenses it. Partitives select for referential definiteness; weak definites provide institutional definiteness. The mismatch blocks the construction.
+
+\subsection{Generic definites}
+
+So-called generic definites like \textit{The lion is noble} or \textit{The computer changed the world} pose a similar challenge. The definite singular is used for kind reference, not individual reference \parencite{carlson1977,krifka2004}. Uniqueness holds at the kind level, but the standard application of definiteness theory targets individuals.
+
+Again, the projectibility-first account provides clarity. Generic definites are deital: they use \textit{the}, resist neutral existential contexts, and pattern with other deital forms distributionally. But their semantics is kind-denoting, not individual-referring. They are orthogonal to the definiteness profile rather than straightforwardly definite or indefinite. The morphosyntactic category (deitality) and the semantic category (definiteness) come apart.
+
+English allows multiple strategies for genericity: bare plurals (\textit{Lions are noble}), indefinite singulars (\textit{A lion is noble}), and definite singulars (\textit{The lion is noble}). The choice between them is conditioned by subtle semantic and pragmatic factors. Definite singulars are preferred for well-established kinds, particularly species or inventions conceived as singular abstract individuals.
+
+What the definite singular provides is the morphosyntactic profile of deitality. The semantics is kind reference, which operates at a different level from the definiteness profile entirely. Individual-level uniqueness and identifiability do not apply; kind-level properties do. The syntax generates a deital phrase; semantics assigns it a generic interpretation that sidesteps the definiteness question.
+
+This explains the distributional profile. Generic definites resist existential \textit{there} because the construction is geared to episodic, stage-level predication. Kind-level subjects are semantically incompatible. The resistance is not about definiteness per se; it is about the interaction between deital morphosyntax, generic semantics, and presentational information structure.
+
+\subsection{Indefinite \textit{this} as constructional recruitment}
+
+Colloquial English productively uses \textit{this} with discourse-new referents in presentational and narrative contexts:
+\ea 
+\ea \textit{There was this guy at the door...}
+\ex \textit{So I am walking home when this dog starts following me...}
+\z
+\z
+This pattern is frequent in speech and systematic across speakers, so it is not performance error or dialectal idiosyncrasy. But it strains the alignment between deitality and definiteness: demonstrative morphology appears without discourse-old or unique referents.
+
+The account explains this as \textit{constructional recruitment}. Certain narrative-presentation constructions have grammaticalized to require deital morphology not for definiteness but for \textit{specificity marking} and \textit{subjective immediacy}. The construction selects deital form while supplying indefinite semantics~-- exactly the kind of form-meaning mismatch the framework predicts when morphosyntactic frames achieve constructional autonomy (§\ref{subsec:autonomy}).
+
+\subsubsection{Diagnostic predictions}
+
+If narrative \textit{this} reflects constructional recruitment rather than a separate lexical item, we predict asymmetric diagnostic behaviour:
+
+\begin{itemize}
+    \item \textbf{Existential \textit{there}.} The narrative construction \textit{licenses} the combination directly. \textit{There was this guy} is acceptable not because \textit{this} has lost its deital profile but because the construction itself packages definiteness-neutral material with narrative prosody. Under neutral prosody without the constructional frame, deital \textit{this} should still resist: \textsuperscript{?}\textit{There is this book on the table} (neutral assertion) versus \textit{There was THIS book I found...} (narrative frame).
+
+    \item \textbf{Partitive \textit{Y}}: The construction does not alter \textit{this}'s syntactic selectional properties. Partitive \textit{of} selects deital complements; narrative framing is irrelevant. Prediction: \textsuperscript{*}\textit{two of this guy} (sg.) and \textsuperscript{*}\textit{two of these guys} (pl., narrative sense) both fail, showing the morphosyntactic restriction persists.
+
+    \item \textbf{Identificational hosting}: Narrative \textit{this} should show intermediate acceptability~-- better than bare \textit{a} (because demonstrative morphology provides the salience hosting requires) but worse than canonical deital uses (because the referent lacks discourse history). This matches the specificity-forcing prediction in §\ref{subsubsec:specific}.
+\end{itemize}
+
+\subsubsection{Why the projectibility-first account predicts this}
+
+Constructional autonomy (§\ref{subsec:autonomy}) explains how morphosyntactic frames, once established, can be recruited for new functions. The narrative-presentational construction in English has grammaticalized to \textit{select} demonstrative morphology for marking specificity and immediacy while \textit{supplying} indefinite semantics. This is not polysemy of the demonstrative; it is a construction that requires deital form while providing non-deital interpretation.
+
+Critically, two diagnostics remain unaffected: \textit{this} in narrative contexts still resists partitive violations (\textsuperscript{*}\textit{two of these guys} on the narrative reading) and still blocks bare \textit{one}-substitution (\textsuperscript{*}\textit{I met this guy and you met one too}). The construction licenses the \textit{there} + demonstrative combination and improves identificational hosting, but it does not alter the demonstrative's core morphosyntactic selectional properties. This selective pattern confirms that deitality is a profile of independently maintained distributional requirements, not a unitary feature that flips wholesale.
+
+This stability arises from three maintainers:
+\begin{itemize}
+\item \textbf{Acquisition}: Children learn the construction as a package~-- narrative frame plus demonstrative morphology. They do not decompose it into \enquote{indefinite this.}
+\item \textbf{Prestige}: Oral narrative genres conventionalize the pattern, maintaining it across generations despite prescriptive pressure.
+\item \textbf{Processing}: The construction's prosodic packaging (narrative contour) signals the non-canonical semantics, preventing garden-pathing.
+\end{itemize}
+
+\subsubsection{Falsification}
+
+The constructional account makes testable predictions that distinguish it from a polysemy analysis:
+
+\textbf{Prediction 1}: Remove the narrative frame, and deital restrictions return. \textit{This guy walked in} (neutral description) should be degraded compared to \textit{There was this guy who walked in} (narrative frame).
+
+\textbf{Prediction 2}: The construction should block other determiners. \textsuperscript{*}\textit{There was a guy at the door...} (with narrative prosody but indefinite article) should be worse than \textit{There was this guy...}, showing the construction selects demonstrative morphology specifically.
+
+\textbf{Prediction 3}: Acquisition should show frame-dependence. Children should initially restrict narrative \textit{this} to the learned constructions (story-openings, presentationals) before generalizing. They should not show across-the-board \enquote{indefinite this} independent of constructional context.
+
+If these predictions fail~-- if \textit{this} behaves non-deitally outside specific constructions, if other determiners work equally well in narrative frames, or if children use indefinite \textit{this} freely without constructional anchoring~-- the constructional account is falsified and a polysemy analysis becomes necessary.
+
+\section{Edge cases and objections}\label{sec:objections}
+
+\subsection{Proper names}
+
+Proper names are semantically definite~-- they refer to unique, identifiable individuals~-- yet they typically lack deital morphology in English. This seems to challenge the correlation between deitality and definiteness.
+
+But the projectibility-first account predicts exactly this pattern. Names show properties from the definiteness profile (identifiability, uniqueness, anaphoric recoverability) without the typical morphological marking. They lack the distributional restrictions that form the core of the deital profile~-- they do not resist existential pivots, do not license partitive complements in the same way, and pattern differently across the diagnostics. This dissociation is possible because the two profiles, while overlapping substantially, are maintained by distinct processes.
+
+Languages differ in whether they require overt deital marking on inherently definite referents. English omits articles on singular names, providing a non-deital marker only on exceptional indefinite uses: \textit{a Susan arrived} = `some person named Susan'. Greek requires deital marking on all definite NPs, names included: \textit{o Stavros} `the Stavros'. Both treat names as semantically definite; they differ in morphosyntactic realization.
+
+English reveals the underlying logic when names enter constructions with indefinite defaults. Bare plurals are indefinite: \textit{dogs}, \textit{books}, \textit{students}. When a family name needs plural form, the constructional signal (bare plural = indefinite) clashes with the semantic requirement (family name = definite). English resolves this by adding deital marking: \textit{the Smiths}, \textit{the Johnsons}. The article is not redundant here; it overrides the constructional default to preserve definiteness.
+
+Cross-linguistic variation in article use with names confirms that the profiles are maintained by different processes. The deital profile's distributional restrictions and the definiteness profile's interpretive properties overlap substantially but are not identical. They correlate strongly because grammaticalization and acquisition create conventional pairings. But they are not identical. Names can be definite without being deital (English singular names), require deital marking when constructions signal otherwise (English plural names), or be marked deital regardless of pragmatic context (Greek singular names).
+
+\subsection{Interrogatives and relatives}
+
+Interrogative and relative determiners require special treatment. Most deitality diagnostics presuppose declarative structure. Interrogatives have obligatorily fronted phrases; relatives have distinct clause-internal syntax.
+
+In partitive constructions under standard interrogative force, interrogatives cannot serve as Y: *\textit{How many of which students passed?} is degraded compared to \textit{How many of the students passed?} Echo questions allow it (\textit{Two of WHICH students?}), but this is a marked construction with distinct prosody and pragmatics. When interrogatives appear in X position (\textit{which of the students}, \textit{how many of these books}), they enforce definite-like Y just as other quantifiers in X do~-- but this reflects the partitive construction's selectional requirements, not the interrogative's own deital status. Interrogatives also license bare \textit{one} (\textit{Which one?}), unlike deital determiners. The profile is non-deital under neutral conditions.
+
+For relatives, I follow the \textit{Cambridge Grammar of the English Language} in treating \textit{that} as a subordinator, not a determinative \parencite{HuddlestonPullum2002}. It marks subordination and does not realize an argument position. \textit{Which}, by contrast, is a determinative when it appears with an overt head (\textit{in which chapter}). In fused-head constructions (\textit{I read which(ever) you recommended}), it patterns like other fused forms~-- sometimes deital, sometimes not, depending on the broader structure.
+
+\subsection{Exclamatives}
+
+Exclamative phrases like \textit{What a mess!} or \textit{So many people!} have clause-type-specific syntax. Most diagnostics do not apply cleanly. Where exclamative phrases surface in declarative contexts, they pattern non-deitally: \textit{There was such a mess} is fine; \textsuperscript{??}\textit{Such a book, which I bought, is rare} is degraded.
+
+The key observation is that exclamative force~-- expressing extreme degree~-- is orthogonal to the deitality profile. When exclamative determiners appear outside their clause type, they behave like other degree-modified quantifiers: acceptable after \textit{there}, poor hosts for identificational constructions.
+
+\subsection{Circularity objection}
+
+The most serious objection is circularity: the diagnostics define the class they purport to identify. If deitality is characterized by resistance to existential \textit{there}, partitive licensing, etc., and those same properties are used to identify deital determiners, haven't we just described the same facts twice?
+
+The reply has two parts. First, the diagnostics are independently motivated. Existential \textit{there}, partitives, and identificational constructions are well-studied phenomena with their own syntactic and semantic analyses \parencite{milsark1977,Barker1998,Lambrecht1994}. I am not inventing tests to fit a theory; I am using established diagnostics to reveal a profile.
+
+Second, the maintainers are independently attested. Grammaticalization pathways from demonstratives to articles are documented cross-linguistically \parencite{diessel1999}. Acquisitional overgeneralization of \textit{the} is an empirical finding \parencite{maratsos1976}. The account does not infer maintainers from the data they are meant to explain. It derives predictions from independently motivated diachronic and acquisitional processes.
+
+The test is empirical. If the diagnostics were mere redescriptions, they would all behave identically under manipulation. But the predictions in §\ref{sec:mechanisms} specify divergent patterns: prosody rescues existentials but not partitives; specificity improves hosting but falls short of deital baselines. These contrasts distinguish causal explanation from descriptive labels.
+
+\section{Conclusion}\label{sec:conclusion}
+
+I have argued for a clean separation between deitality~-- a structural profile~-- and definiteness~-- a semantic one. The separation is motivated empirically by systematic form-meaning mismatches \parencite{FrancisMichaelis2003}: weak definites, generic definites, narrative \mention{this}, and proper names show that morphological marking and referent identifiability do not align perfectly.
+
+The apparatus comes from anti-essentialist natural-kind theory, but the claim is grammatical. Deitality is justified by projectibility: the category lets us predict which diagnostics travel together, which restrictions survive semantic mismatch, and which parts of the system are sensitive to prosody, construction, dialect, and acquisition. The deital profile includes distributional restrictions (existential \textit{there} resistance, partitive licensing, identificational hosting, \textit{one}-substitution blocking) plus a strong tendency to mark semantically definite referents. The definiteness profile includes interpretive properties (identifiability, uniqueness, anaphoric recoverability) plus a strong tendency to be marked by deital morphology.
+
+The analysis separates stable profile, maintenance, and strict homeostasis. Deitality has a projection target and a stable grammatical profile. It also has plausible maintainers: grammaticalization creates the profile historically through property dragging; acquisition, interactive alignment, prestige selection, and iterated transmission reproduce it across individuals, conversations, communities, and generations. Definiteness is maintained by discourse-pragmatic pressures: common ground management, bridging, and topic continuity create correlations among identifiability, uniqueness, and anaphoric tracking. Nothing in the argument requires deitality to be a single corrective-control system.
+
+The profiles overlap substantially~-- most semantically definite referents are marked deitally, and most deital marking appears on definite referents~-- because grammaticalization conventionalized this pairing and discourse efficiency maintains it. The maintainers are distinct, which allows systematic dissociations: weak definites show deital morphology without definiteness semantics; proper names show definiteness semantics without deital morphology. Those mismatches show what the category lets us infer about residual morphosyntax once semantics shifts.
+
+The framework generates falsifiable predictions. Prosodic manipulation should affect existential pivots but not partitive \textit{Y}-selectivity. Specificity forcing should improve indefinites in identificational environments without reaching deital baselines. Dialectal variation in definiteness-selecting frames should preserve deital patterning when definiteness is supplied by demonstratives or genitives. Acquisition should show developmental asymmetries reflecting the maintainers at work. These predictions distinguish the projectibility-first account from semantic or purely distributional alternatives and are testable through corpus studies, experimental psycholinguistics, and acquisition research.
+
+The approach clarifies the methodological stance required for studying grammatical categories. Identifying grammatical categories of this kind requires empirical investigation~-- corpus studies, acquisition research, cross-linguistic comparison~-- not a priori stipulation. The profiles and their maintainers are discovered through scientific practice because they support generalizations that work. This aligns linguistic ontology with empirical linguistics rather than treating grammatical categories as objects of pure philosophical analysis.
+
+Two broader implications deserve mention. First, the approach offers a model for other recalcitrant grammatical categories. Aspect, mood, transitivity, and even major lexical categories like verb and adjective might be fruitfully reanalysed as projectible profiles. The move away from essentialism toward causally grounded profiles could reshape how we think about grammatical ontology.
+
+Second, the framework bridges theoretical divides. By grounding formal categories in diachrony and acquisition, it connects synchronic structure to historical change and cognitive development. The result is a richer picture of how grammatical categories work.
+
+The definiteness problem is solved by recognizing that we have been conflating two distinct profiles: one primarily morphosyntactic, one primarily semantic, each comprising properties from both domains but maintained by different causal processes. Their correlation is real and grounded, and the categories remain distinct. Once the categories are separated, they do explanatory work: they let us predict which diagnostics will travel together, which mismatches will preserve deital residue, and which dimensions of the system will vary across dialects, constructions, and learning stages.
+
+\clearpage
+\appendix
+\section{Inventory of English Determinatives}\label{sec:inventory}
+
+\begin{table}[ht!]
+\centering
+\footnotesize
+\begin{tabular}{lccccl}
+\toprule
+\textbf{Determinative} & \textbf{\textit{there}} & \textbf{Y} & \textbf{Host} & \textbf{\textit{one}} & \textbf{Classification} \\
+\midrule
+\multicolumn{6}{l}{\textit{Core deital items}} \\
+\textit{the} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{this} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{that} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{these} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{those} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Universal/distributive quantifiers} (mixed)} \\
+\textit{each} & \checkmark & -- & -- & \checkmark & Mixed \\
+\textit{every} & \checkmark & -- & -- & \checkmark & Mixed \\
+\textit{everybody/everyone} & \checkmark & -- & \checkmark & \checkmark & Mixed \\
+\textit{everything} & \checkmark & -- & \checkmark & \checkmark & Mixed \\
+\textit{everywhere} & \checkmark & -- & \checkmark & \checkmark & Mixed \\
+\textit{all} & --$^a$ & -- & -- & \checkmark & Mixed \\
+\textit{both} & --$^a$ & -- & -- & \checkmark & Mixed \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Alternative/negative quantifiers} (mixed)} \\
+\textit{either} & \checkmark & -- & -- & -- & Mixed \\
+\textit{neither} & \checkmark & -- & -- & -- & Mixed \\
+\textit{no} & -- & -- & -- & \checkmark & Mixed \\
+\textit{nobody/no one} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{nothing} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{nowhere} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{none} & -- & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Indefinites and weak quantifiers}} \\
+\textit{a/an} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{a certain} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{a few} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{a little} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{another} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{some} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{somebody/someone} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{something} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{somewhere} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{any} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{anybody/anyone} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{anything} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{anywhere} & -- & -- & -- & -- & \Nondeital{} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\footnotesize
+\begin{tabular}{lccccl}
+\toprule
+\textbf{Determinative} & \textbf{\textit{there}} & \textbf{Y} & \textbf{Host} & \textbf{\textit{one}} & \textbf{Classification} \\
+\midrule
+\multicolumn{6}{l}{\textit{Degree/quantity expressions}} \\
+\textit{many} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{much} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{few} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{fewer} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{little} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{less} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{more} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{most} (proportional) & -- & -- & -- & -- & \Nondeital{} \\
+\textit{several} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{certain} (plural) & -- & -- & -- & -- & \Nondeital{} \\
+\textit{various} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{multiple} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{enough} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{sufficient} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{umpteen} & -- & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Superlatives and ordinals} (deital in referential frames)} \\
+(\textit{the})\textit{ most\upslash fewest\upslash least}$^b$ & \checkmark & -- & \checkmark & \checkmark & \Deital{} \\
+\textit{last} & \checkmark & -- & \checkmark & \checkmark & \Deital{} \\
+\textit{next} & \checkmark & -- & \checkmark & \checkmark & \Deital{} \\
+\textit{said} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Numerals}$^c$} \\
+\textit{zero} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{one} (numeral) & -- & -- & -- & -- & \Nondeital{} \\
+\textit{two, three, four...} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{ten, twenty...ninety} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{hundred, thousand, million} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{once, twice, thrice} & -- & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Interrogatives} (clause-type dependent)$^d$} \\
+\textit{what} & n/a & -- & n/a & -- & \Nondeital{} \\
+\textit{which} & n/a & -- & n/a & -- & \Nondeital{} \\
+\textit{whose} & n/a & -- & n/a & -- & \Nondeital{} \\
+\textit{how many/much} & n/a & -- & n/a & -- & \Nondeital{} \\
+\textit{what/which kind of} & n/a & -- & n/a & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Relatives and fused relatives}$^e$} \\
+\textit{which} (with overt head) & n/a & -- & n/a & -- & \Nondeital{} \\
+\textit{what} (fused relative) & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{whatever} (ignorance) & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{whatever} (free-choice) & \checkmark & -- & -- & -- & Mixed \\
+\textit{whichever} (ignorance) & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{whichever} (free-choice) & \checkmark & -- & -- & -- & Mixed \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[ht!]
+\centering
+\footnotesize
+\begin{tabular}{lccccl}
+\toprule
+\multicolumn{6}{l}{\textit{Exclamatives} (clause-type dependent)$^f$} \\
+\textit{what} (exclamative) & -- & -- & -- & -- & \Nondeital{} \\
+\textit{what a} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{such} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{such a} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{so many/much} & -- & -- & -- & -- & \Nondeital{} \\
+\textit{how many/much} (excl.) & -- & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{6}{l}{\textit{Personal determinatives}$^g$} \\
+\textit{us} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{we} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\textit{you} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\bottomrule
+\end{tabular}
+
+\caption{Complete inventory of English determinatives. 
+\checkmark{} = shows the \textsc{deital} pattern for the given diagnostic; -- = fails the pattern; n/a = diagnostic undefined for the construction type. 
+\emph{Interpretation for the \textit{there} column:} \checkmark{} means \emph{resists} post-\textit{there} pivothood under neutral prosody (i.e., exhibits the definiteness effect), not that the item occurs after \textit{there} \parencite{milsark1977,McNally2011}. 
+\emph{Classification:} \textsc{deital} = shows convergence across all applicable diagnostics (prototypical profile members); \textsc{non-deital} = fails all diagnostics; Mixed = shows partial profile membership (expected for projectible profiles). 
+ $^a$Coordination rescues \textit{there}-pivot. $^b$Determinative superlative use only (not proportional quantifier). $^c$See \PrepositionCitation{} for why only these. $^d$Interrogatives fronted in questions; diagnostics largely undefined.
+$^e$Fused relatives pattern varies by reading (ignorance-definite vs. free-choice).
+$^f$Exclamatives in declarative contexts pattern non-deitally; frame-initial uses undefined. $^g$As in \textit{us linguists}.}
+
+
+
+
+
+\label{tab:inventory}
+\end{table}
+
+\clearpage
+\printbibliography
+
+\end{document}
