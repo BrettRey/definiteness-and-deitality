@@ -127,9 +127,12 @@
 % Mentions (words/expressions under discussion)
 \newcommand{\mention}[1]{\textit{#1}}
 
-% Mentions in headings (angle brackets instead of italics)
+% Standard abbreviation for The Cambridge Grammar of the English Language.
+\newcommand{\CGEL}{\emph{CGEL}}
+
+% Mentions in headings (quiet italics, not angle brackets)
 % Robust: headings are moving arguments (written to .toc/.aux)
-\DeclareRobustCommand{\mentionhead}[1]{⟨\textup{#1}⟩}
+\DeclareRobustCommand{\mentionhead}[1]{{\normalfont\itshape\MakeLowercase{#1}}}
 
 % Object language (cited forms, foreign words)
 \newcommand{\olang}[1]{\textit{#1}}

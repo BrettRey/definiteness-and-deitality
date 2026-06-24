@@ -6,6 +6,7 @@
 \input{preamble.tex}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{longtable}
 \setlength{\headheight}{13.6pt}
 \pgfplotsset{compat=1.18}
 \usetikzlibrary{arrows.meta,shapes,positioning,calc}
@@ -13,13 +14,13 @@
 \hypersetup{
   pdftitle={Definiteness and Deitality in English: A Projectibility-First Account},
   pdfauthor={},
-  pdfkeywords={definiteness, article, demonstratives, determinatives, projectibility}
+  pdfkeywords={definiteness, article, demonstratives, determinatives, grammatical categories}
 }
 \else
 \hypersetup{
   pdftitle={Definiteness and Deitality in English: A Projectibility-First Account},
   pdfauthor={Brett Reynolds},
-  pdfkeywords={definiteness, article, demonstratives, determinatives, projectibility}
+  pdfkeywords={definiteness, article, demonstratives, determinatives, grammatical categories}
 }
 \fi
 \urlstyle{same}
@@ -62,7 +63,7 @@
 \author{}
 \date{}
 \else
-\author{\AuthorWithORCID{Brett Reynolds}{\myorcid}\thanks{I thank Cris Chatterjee for helpful feedback. I used Claude Sonnet 4.5 extensively in drafting and editing this paper, with some input from ChatGPT 5 and Gemini 2.5 Pro. I also used Claude Opus 4.8 and GPT-5.5 Pro for review feedback, and OpenAI Codex (GPT-5) for revision support. I reviewed and edited all text, and I take full responsibility for all claims and conclusions.}\\[4pt]
+\author{\AuthorWithORCID{Brett Reynolds}{\myorcid}\thanks{I thank Cris Chatterjee for helpful feedback.}\\[4pt]
 Humber Polytechnic \& University of Toronto}
 \date{\today}
 \fi
@@ -72,50 +73,56 @@ Humber Polytechnic \& University of Toronto}
 \maketitle
 
 \begin{abstract}
-I separate the semantic category of \Definiteness{} from the structural category I call \Deitality{}. Deitality is a projectible grammatical profile: its central properties include resistance as the pivot of existential \mention{there} under neutral prosody, eligibility as the complement of partitive \mention{of}, suitability as a host for nonrestrictive modification and identificational constructions, and a strong tendency to mark semantically definite referents. Definiteness is the semantic profile with which deitality usually aligns: identifiability, uniqueness, and anaphoric recoverability. The two profiles are strongly correlated but not identical. Their imperfect alignment explains weak definites, generic definites, narrative \mention{this}, and cases where proper names or bare nominals are semantically definite yet morphosyntactically non-deital. The account is projectibility-first: a category is justified by the inferences it supports, not by a necessary-and-sufficient definition. Deitality earns its place because it predicts which diagnostics travel together, which pieces of the profile survive semantic mismatch, and which dimensions of the system vary across prosody, dialect, construction, and acquisition.
+In English grammar, \term{definiteness} has been used for two profiles that are better kept apart. One is semantic: identifiability, uniqueness, anaphoric recoverability, and related discourse conditions. The other is structural, and English grammar has no agreed name for it. I call it \Deitality{}: its prototype is the demonstratives (deictic, and the historical source of \mention{the}), and its core diagnostics involve domain establishment in true partitives, resistance to neutral existential \mention{there} pivots, and ready hosting of identificational material. A narrow bare-\mention{one} pattern supplies corroborating residue rather than a core diagnostic. Definiteness and deitality usually coincide, which is why they get run together, though the alignment is imperfect: weak definites, generic definites, narrative \mention{this}, and proper names each mark a point where they separate.
+
+The account justifies grammatical categories by the inferences they support. Deitality is a stable, historically sourced, learnable grammatical profile. Once a form or construction is located in the profile, the analysis predicts which residues should survive semantic mismatch, which diagnostics should split under prosodic or specificity manipulation, and which variation should appear across dialects and acquisition. The result is a more predictive account of English definiteness. Semantic definiteness and structural deitality are strongly correlated, partly independent, and leaky in principled ways.
 \end{abstract}
 
-\textbf{Keywords:} definiteness; article; demonstratives; determinatives; projectibility
+\noindent\textbf{Keywords:} definiteness; article; demonstratives; determinatives; grammatical categories
 
 \newpage
 \section{Introduction}\label{sec:intro}
 
-English grammars routinely conflate morphosyntactic form with semantic function. When it comes to definiteness, this conflation creates persistent empirical problems. Tests that target morphosyntax, like the definiteness effect in existential \mention{there}, are treated as direct probes of uniqueness or familiarity. Meanwhile, semantic heuristics, like asking whether it makes sense to say \mention{which one?}, are used to define grammatical categories. The result is a theoretical tangle where neither form nor meaning gets a clean characterization.
+One inherited label has been covering two profiles. In English grammar, \term{definiteness} names both a semantic pattern of referent identifiability and a structural pattern of distributional behaviour that has no agreed name of its own. The slippage shows up whenever tests for one are read as probes of the other.
 
-I propose a controlled decoupling. The structural category, which I call \Deitality{}, is defined by a profile of distributional properties that co-occur in English determinatives and in the DP constructions they help realize. The semantic category \Definiteness{} is defined by a distinct profile of interpretive properties related to referent identifiability. Deitality is morphosyntactic but often semantically definite; definiteness is semantic but often morphosyntactically deital. The correlation is strong. The identity is absent.
+The definiteness effect in existential \mention{there} \parencite{milsark1977,McNally2011} is a morphosyntactic test, but it's often used as evidence about uniqueness or familiarity. Semantic tests for identifiability, like the \mention{which?}-question heuristic in \emph{The Cambridge Grammar of the English Language}, ask whether a description identifies the intended referent so that an addressee doesn't have to ask \mention{Which one?} \parencite{HuddlestonPullum2002}; they don't by themselves sort structural profiles.
 
-This misalignment produces well-known puzzles. So-called \enquote{weak definites} like \mention{go to the hospital} (I retain the label though the analysis here treats them as deital but indefinite) combine deital morphology with semantically indefinite reference. \enquote{Generic definites} like \mention{The tiger is endangered} are deital but involve kind reference rather than individual-level definiteness. And proper names are semantically definite yet morphosyntactically non-deital. These are classic cases of form--function mismatch \parencite{FrancisMichaelis2003}: the morphosyntactic and semantic categories systematically come apart.
+I call the structural profile \Deitality{}. The new term names an old pattern: \mention{the}, demonstratives, genitive NPs in determiner function, and related constructions pattern together distributionally even when ordinary definiteness semantics loosens. Deitality is characterized by distributional properties that co-occur in English determinatives and in the NP constructions in which they serve as determiners.\footnote{I follow the category--function distinction of \textcite{HuddlestonPullum2002}: \term{determinative} names a lexical category (\mention{the}, \mention{this}, \mention{some}), while \term{determiner} names the function it most often realizes in NP structure. Nothing in the account assumes a determiner-headed nominal.}
 
-The theoretical apparatus comes from natural-kind theory, but the payoff is linguistic. I treat deitality as a projectible grammatical profile in the tradition of homeostatic property-cluster (HPC) theory \parencite{boyd1991,boyd1999}. A projectible profile combines a contingent cluster of properties with enough order and maintenance to support inference. No single property is required, membership is graded, and boundary placement can shift over time. What makes the category coherent is that partial evidence about one part of the profile licenses expectations about the rest.
+The semantic counterpart, \Definiteness{}, is characterized by interpretive properties related to referent identifiability. Deital marking usually tracks semantic definiteness, but the match breaks in both directions: names can be definite without ordinary deital marking, and weak definites can be deital without ordinary token-level definiteness. The correlation is strong, but the two aren't identical. Nor is deitality just the old strong/weak contrast, specificity, familiarity, or uniqueness under a new name; those notions target semantic, discourse, or construction-specific regions of the pattern.
 
-The revision from a simple HPC account matters. Not every stable profile is homeostatic in a strict sense. The later literature distinguishes stable clustering, network order, maintenance, and corrective control \MetaphysicsClusterCites{}. The linguistic claim below needs stability, ordering, and enough maintenance to explain why the profile persists; it does not need to show that English deitality is a single corrective-control system.
+\textcite{lyons1999} is the closest predecessor. He treats definiteness as a grammatical category tied to the grammaticalization of identifiability, with its own syntax, distribution, diachrony, and cross-linguistic profile. I accept that separation between grammatical marking and the pragmatic concept it grammaticalizes. The claim here is narrower, but it adds a different kind of test: English contains a deital profile within the determination system, anchored in demonstrative-derived and determiner-function forms, whose ranked diagnostics support predictions about partitives, existential pivots, hosting, mismatch residue, dialect variation, and acquisition.
 
-The relevant sources and stabilizers operate at distinct timescales. Grammaticalization creates much of the profile historically when demonstratives become articles; acquisition filters it as each generation learns the system; interactive alignment, prestige selection, and iterated transmission plausibly stabilize parts of it across conversations, communities, and generations. Definiteness, by contrast, is maintained by discourse-pragmatic pressures: common ground management, bridging, and topic continuity create correlations among identifiability, uniqueness, and anaphoric tracking. The profiles overlap substantially (most deital marking appears on definite referents), and their partly distinct stabilizers let us predict where the overlap will hold and where it'll loosen.
+Proper names show the split in a concrete way. Bare singular names such as \mention{John} are semantically definite but lack ordinary deital marking, while plural family names such as \mention{the Smiths} require it. So-called \enquote{weak definites} like \mention{go to the hospital}\footnote{I retain the standard label; §\ref{sec:cases} argues that these constructions use deital form while lacking ordinary token-level definiteness.} combine definite morphology with semantically indefinite reference. \enquote{Generic definites} like \mention{The tiger is endangered} use definite singular form for kind reference rather than individual-level definiteness. These form--function mismatches are calibration points \parencite{FrancisMichaelis2003}: places where the semantic and structural profiles detach just enough to expose the structural pattern beneath the inherited label.
 
-The payoff is empirical before it's philosophical. The projectibility-first framework explains why deitality and definiteness align without being identical, why weak and generic definites exist, and why proper names pattern as they do. It also tells us what to expect once we identify a determinative, DP, or construction as more or less deital: which residues should survive semantic mismatch, which diagnostics should split under manipulation, and which parts of the system should vary across prosodic, dialectal, and developmental conditions. Theoretically, it offers a principled way to embrace graded category membership: categories can have prototypical members and gradient edges while remaining real and explanatorily useful.
+The analysis uses one idea from natural-kind theory: a category is projectible when observed cases license expectations about unobserved ones \parencite{goodman1983}. Section~\ref{sec:hpc} develops the Boydian and post-HPC discipline behind that claim; the point here is that deitality has to support predictions across constructions, semantic mismatches, manipulations, and borderline cases \parencite{boyd1991,boyd1999}.
 
-The paper proceeds as follows. Section~\ref{sec:hpc} introduces the projectibility-first framework and justifies its application to grammatical categories. Section~\ref{sec:semantic} characterizes definiteness as a semantic profile. Section~\ref{sec:diagnostics} develops the diagnostics for deitality as morphosyntactic tests. Section~\ref{sec:mechanisms} identifies sources and stabilizers of the deital profile and derives empirical predictions. Section~\ref{sec:cases} applies the framework to weak and generic definites. Section~\ref{sec:objections} addresses edge cases and objections. Section~\ref{sec:conclusion} concludes.
+The sources and stabilizers that matter here operate at distinct timescales, from demonstrative grammaticalization to acquisition and usage. Because deitality and definiteness are supported by partly different pressures, the overlap between them should hold in some regions and loosen in others.
+
+The payoff is empirical first. The projectibility-first framework explains why deitality and definiteness align without being identical, why weak and generic definites exist, and why proper names pattern as they do. It also tells us what to expect once we locate a determinative, noun phrase, or construction in the deital profile: which residues should survive semantic mismatch, which diagnostics should split under manipulation, and which parts of the system should vary across prosodic, dialectal, and developmental conditions. Theoretically, it offers a principled way to handle internal gradedness without making the category unreal: how central an item is, how strong the evidence is, and where the boundary falls are distinct questions.
+
+The paper proceeds as follows. Section~\ref{sec:hpc} introduces the projectibility-first framework and justifies its application to grammatical categories. Section~\ref{sec:semantic} characterizes definiteness as a semantic profile. Section~\ref{sec:diagnostics} develops the diagnostics for deitality as morphosyntactic tests. Section~\ref{sec:mechanisms} identifies sources and stabilizers of the deital profile and derives empirical predictions. Section~\ref{sec:cases} applies the framework to weak and generic definites and narrative \mention{this}. Section~\ref{sec:objections} addresses edge cases and objections. Section~\ref{sec:conclusion} concludes.
 
 \section{Projectible profiles and grammatical categories}\label{sec:hpc}
 
-The proposal to treat deitality as a projectible grammatical profile requires justification. The framework is Boydian in motivation: it rejects necessary-and-sufficient definitions and asks what classifications let us infer. But it also incorporates a later discipline from natural-kind theory: stability, network order, maintenance, and strict homeostasis are not the same achievement.
+The proposal to treat deitality as a projectible grammatical profile requires justification. The framework is Boydian in motivation: it rejects necessary-and-sufficient definitions and asks what categories let us infer. But it also incorporates a later discipline from natural-kind theory: stability, network order, maintenance, and strict homeostasis aren't the same achievement.
 
 \subsection{From essence to projectibility}
 
-The motivating contrast comes from the species problem. Essentialist definitions of species sought a set of necessary and sufficient conditions for membership: morphological similarity, ability to interbreed, shared ancestry, or some other privileged property. Each candidate failed. Ring species can interbreed with adjacent populations but not with distant ones. Asexually reproducing organisms do not interbreed at all. Morphologically similar organisms can be reproductively isolated. The natural world resisted any single fixed cutoff \parencite{mayr1942}.
+The motivating contrast comes from the species problem. Essentialist definitions of species sought a set of necessary and sufficient conditions for membership: morphological similarity, ability to interbreed, shared ancestry, or some other privileged property. Each candidate failed. Ring species can interbreed with adjacent populations but not with distant ones. Asexually reproducing organisms don't interbreed at all. Morphologically similar organisms can be reproductively isolated. The natural world resisted any single fixed cutoff \parencite{mayr1942}.
 
-Boyd's solution was to reject essentialism. A species isn't defined by a single property or fixed list of properties. It's characterized by a cluster of properties (morphological, genetic, behavioural) that co-occur more often than chance would predict. What matters for scientific practice is projectibility: observing some parts of the profile licenses expectations about others \parencite{boyd1991,boyd1999}. The category is useful because it fits inferential practice to real causal structure, not because it mirrors an essence.
+\textcite{boyd1991,boyd1999} rejects essentialism. A species is characterized by a cluster of properties (morphological, genetic, behavioural) that co-occur more often than chance would predict, with no single property or fixed list required for membership. What matters for scientific practice is projectibility: for \textcite{goodman1983}, a category supports projections from observed cases to unobserved ones. In Boyd's HPC framework, that means observing some parts of the profile licenses expectations about others. The projectibility is also field-relative: a category earns its place by supporting the inferences a practice needs. The category is useful because it fits inferential practice to real causal structure, not because it mirrors an essence.
 
-This gives three commitments that are useful for grammar. First, the category has a contingent property profile: a family of properties that statistically co-occur. Second, the profile has enough order or maintenance to keep the co-occurrence from being accidental. Third, the profile is projectible for some analytical purpose. Because these conditions are not essentialist, the resulting category can show graded membership, prototype effects, and historically mobile boundaries without collapsing into arbitrariness.
+This gives three commitments that are useful for grammar. First, the category has a contingent property profile: a family of properties that statistically co-occur. Second, the profile has enough order or maintenance to keep the co-occurrence from being accidental. Third, the profile is projectible for some analytical purpose. Because these conditions aren't essentialist, the resulting category can have internally graded structure and prototype effects without collapsing into arbitrariness. That doesn't have to make the boundary itself fuzzy. It means that our evidence for locating the boundary can be uneven, and that category members can be more or less central once they're inside it.
 
 \subsection{Separating stability, maintenance, and control}
 
-The word \term{homeostatic} should not do more work than the evidence warrants. In the HPC-derived debate, a profile can be stable without a known maintainer; it can be network-ordered without feedback; and it can be maintained without being a corrective-control system \parencite{slater2015,khalidi2013,khalidi2018nodes,onishi2022}. A stricter diagnostic therefore asks five questions in order \MetaphysicsSelfCite{}:
+The word \term{homeostatic} shouldn't do more work than the evidence warrants. In the HPC-derived debate, a profile can be stable without a known maintainer; it can be network-ordered without feedback; and it can be maintained without being a corrective-control system \parencite{slater2015,khalidi2013,khalidi2018nodes,onishi2022}. A stricter diagnostic asks five questions in order \MetaphysicsSelfCite{}:
 
 \begin{enumerate}[label=(\roman*)]
 \item What's the projection target?
 \item What stable profile supports that projection?
-\item What ordering relations explain why the projection is not accidental?
+\item What ordering relations explain why the projection isn't accidental?
 \item What maintains the profile across relevant timescales?
 \item Is the maintainer a corrective-control process that preserves a higher-scale relation through lower-scale variation?
 \end{enumerate}
@@ -124,37 +131,37 @@ This paper doesn't need the fifth step. The central linguistic claim is that dei
 
 \subsection{Why grammatical categories need this framework}
 
-The parallel to linguistics is direct. Just as biologists sought an essence for species, linguists have sought one for definiteness. Decades of research have tried to define \enquote{definite noun phrase} by semantic essence, usually uniqueness \parencite{russell1905,hawkins1978} or familiarity \parencite{christophersen1939,heim1982}. But counterexamples proliferate. Weak definites like \mention{listen to the radio} use \mention{the} without uniqueness \parencite{carlsonsussman2005,aguilarguevarazwarts2010}. Generic definites like \mention{The lion is noble} refer to kinds, not individuals \parencite{carlson1977,krifka2004}. Cross-linguistically, definite articles appear in contexts where their semantic contribution seems redundant or absent \parencite{lyons1999}.
+The parallel to linguistics is direct. Just as biologists sought an essence for species, linguists have sought one for definiteness. Decades of research have tried to define \enquote{definite noun phrase} by semantic essence, usually uniqueness \parencite{russell1905,hawkins1978} or familiarity \parencite{christophersen1939,heim1982}. But counterexamples proliferate. Weak definites like \mention{listen to the radio} use \mention{the} without uniqueness \parencite{carlsonsussman2005,aguilarguevarazwarts2010}. Generic definites like \mention{The lion is noble} refer to kinds, not individuals \parencite{carlson1977,krifka2004}. Cross-linguistically, definite markers appear in contexts where their semantic contribution seems redundant or absent \parencite{lyons1999}.
 
-These aren't peripheral exceptions. They're systematic patterns that suggest the category lacks a simple essence. The attempt to define a morphosyntactic object, the category of noun phrases marked with definite morphology, using purely semantic criteria has produced a category that doesn't align with the empirical facts.
+Far from being peripheral exceptions, these systematic patterns suggest the category lacks a simple essence. The attempt to define a morphosyntactic object, the category of noun phrases marked with definite morphology, using purely semantic criteria has produced a category that doesn't align with the empirical facts.
 
-The projectibility-first framework offers a way forward. We can characterize deitality and definiteness as distinct profiles and ask what each lets us infer. The strong correlation between them is real and grounded in grammar, discourse, history, and acquisition, but the profiles can come apart in systematic ways \parencite{FrancisMichaelis2003}. The subsequent sections develop this account: §\ref{sec:semantic} characterizes definiteness as the relevant semantic profile, §\ref{sec:diagnostics} establishes deitality through convergent diagnostics, and §\ref{sec:mechanisms} shows how deitality supports predictions across constructions, dialects, and developmental stages.
+The projectibility-first framework offers a way forward. We can characterize deitality and definiteness as distinct profiles and ask what each lets us infer. The strong correlation between them is real and grounded in grammar, discourse, history, and acquisition, but the profiles can come apart in systematic ways \parencite{FrancisMichaelis2003}.
+
+Cross-linguistic work on two kinds of definites gives an important comparison point. \textcite{schwarz2009,schwarz2013} argues that German weak and strong article forms track different semantic relations, roughly uniqueness and anaphoric familiarity; related work extends the comparison to languages without ordinary articles and to languages where the analysis is contested \parencite{jenks2018,arkohMatthewson2013,bombi2018}. This literature is an ally because it shows that the definiteness domain can split grammatically. The account here asks a different question. It doesn't replace the uniqueness--familiarity contrast; it asks whether English forms and constructions participate in a ranked distributional profile whose diagnostics split under prosody, specificity, semantic mismatch, dialectal variation, and acquisition. On this account, the Schwarz-style weak/strong contrast falls within deital territory rather than exhausting it: the question is how semantically different definite markers pattern on structural diagnostics.
 
 This move has precedent. Prototype theory in cognitive linguistics has long recognized that categories have graded structure \parencite{rosch1978,lakoff1987}. But prototype theory often stops at similarity structure. Boyd's HPC framework adds a causal account of why certain properties cluster and why that clustering supports reliable inferences beyond the data that first identified it.
 
-The framework has already been applied to linguistic phenomena. \textcite{miller2021} argues that word-kinds like \mention{table} and \mention{Paris} are HPCs, defined by clusters of phonological, orthographic, and semantic properties maintained by cognitive and social mechanisms. This paper extends that style of analysis from lexical ontology to grammatical categories, but with a stricter vocabulary. Where Miller asks what makes tokens instances of the same word-kind, I ask what distinguishes deital from non-deital determinatives: why \mention{the}, \mention{this}, and genitives pattern together distributionally while \mention{a}, \mention{some}, and \mention{many} form a contrasting profile.
+The framework has already been applied to linguistic phenomena. \textcite{miller2021} argues that word-kinds like \mention{table} and \mention{Paris} are HPCs, defined by clusters of phonological, orthographic, and semantic properties maintained by cognitive and social mechanisms. This paper extends that style of analysis from lexical ontology to grammatical categories, but with a stricter vocabulary. Where Miller asks what makes tokens instances of the same word-kind, I ask what distinguishes deital from non-deital determinatives: why \mention{the}, \mention{this}, and genitive NPs in determiner function pattern together distributionally while \mention{a}, \mention{some}, and \mention{many} form a contrasting profile.
 
 \section{Definiteness as a semantic profile}\label{sec:semantic}
 
-Before characterizing deitality, I need to clarify what definiteness is, semantically and pragmatically, so the contrast with deitality is clear. The literature presents two major traditions: uniqueness theories and familiarity theories. Rather than adjudicating between them, I argue that both capture important properties in the definiteness profile.
+Before characterizing deitality, I need to clarify what definiteness is, semantically and pragmatically, so the contrast with deitality is clear. The literature presents two major traditions: uniqueness theories and familiarity theories. Nearby work also separates semantic properties often grouped under definiteness, including definiteness and determinacy \parencite{coppockBeaver2015}. Rather than adjudicating between these approaches, I argue that they capture important properties in the definiteness profile.
 
-Uniqueness theories originate with Russell \parencite{russell1905}. A definite description \mention{the F} presupposes that exactly one entity satisfies \mention{F} in the contextually relevant domain. Later work refined this to allow pragmatic restriction: uniqueness holds relative to a \enquote{P-set} or shared frame of reference \parencite{hawkins1978}. This approach handles \enquote{larger situation} uses like \mention{the sun} and anaphoric uses where prior discourse has narrowed the context to a single salient entity.
+Uniqueness theories originate with \textcite{russell1905}. A definite description \mention{the F} presupposes that exactly one entity satisfies \mention{F} in the contextually relevant domain. Later work refined this to allow pragmatic restriction: uniqueness holds relative to a \enquote{P-set} or shared frame of reference \parencite{hawkins1978}. This approach handles \enquote{larger situation} uses like \mention{the sun} and anaphoric uses where prior discourse has narrowed the context to a single salient entity.
 
-Familiarity theories stem from Christophersen and were formalized by Heim \parencite{christophersen1939,heim1982}. Definite noun phrases are subject to a familiarity condition: they have to refer to an entity already established in the discourse model. Indefinites, by contrast, introduce new referents. This framework excels at explaining discourse anaphora, where a definite's felicity depends directly on having a linguistic antecedent.
+Familiarity theories stem from \textcite{christophersen1939} and were formalized by \textcite{heim1982}. Definite noun phrases are subject to a familiarity condition: they have to refer to an entity already established in the discourse model. Indefinites introduce new referents. This framework excels at explaining discourse anaphora, where a definite's felicity depends directly on having a linguistic antecedent.
 
 Both theories have problems. Familiarity isn't necessary: \mention{the first person on Mars} can be used felicitously even when the referent is discourse-new. Uniqueness isn't sufficient: in contexts with two familiar but non-unique entities, neither \mention{the N} works smoothly. And weak definites challenge both: \mention{go to the hospital} uses \mention{the} when the hospital is neither uniquely specified nor discourse-familiar \parencite{Abbott2004,Birner2013}.
 
-I propose that uniqueness and familiarity are both properties in the definiteness profile, along with anaphoric recoverability and, more broadly, identifiability. These properties co-tend because of discourse-pragmatic pressures: common ground management makes unique entities easier to track; anaphoric devices rely on familiarity; topics bias toward identifiable referents. But the co-occurrence is statistical, not absolute.
+I propose that uniqueness and familiarity are both properties in the definiteness profile, along with anaphoric recoverability and, more broadly, identifiability. These properties co-tend because of discourse-pragmatic pressures: common ground management makes unique entities easier to track; anaphoric devices rely on familiarity; topics bias toward identifiable referents. That's why uniqueness and familiarity theories map different regions of one semantic profile rather than competing essences. The properties overlap heavily (a discourse-old, unique referent satisfies both), but they dissociate in predictable ways. Weak definites have identifiability without token-level uniqueness. Cataphoric definites have uniqueness without prior familiarity. The semantic notion of definiteness is profile-like rather than essence-like.
 
-This explains the theoretical debate. Uniqueness and familiarity theorists aren't discovering competing essences. They're mapping different regions of the same semantic profile. The properties overlap heavily (a discourse-old, unique referent satisfies both), but they dissociate in predictable ways. Weak definites have identifiability without token-level uniqueness. Cataphoric definites have uniqueness without prior familiarity. The semantic notion of definiteness is therefore profile-like rather than essence-like.
-
-Definiteness is a profile centred on interpretation: how referents are mentally represented and tracked in discourse. The core properties are identifiability, uniqueness, and anaphoric recoverability. The profile also includes a morphological tendency: definite referents are strongly associated with deital marking. This association is maintained by discourse efficiency and grammaticalization history, creating substantial overlap with deitality. The next sections establish the deital profile through convergent diagnostics (§\ref{sec:diagnostics}) and identify the distinct processes maintaining it (§\ref{sec:mechanisms}). The imperfect alignment between profiles, cases where definiteness and deitality dissociate, is the focus of §\ref{sec:cases}.
+Definiteness is a profile centred on interpretation: how referents are mentally represented and tracked in discourse. The core properties are identifiability, uniqueness, and anaphoric recoverability. Definite referents are often marked deitally, but that association is an empirical correlation to be explained, not a defining property of the semantic profile. The next sections establish the deital profile through convergent diagnostics (§\ref{sec:diagnostics}) and identify the distinct processes maintaining it (§\ref{sec:mechanisms}). The imperfect alignment between profiles, cases where definiteness and deitality dissociate, is the focus of §\ref{sec:cases}.
 
 \section{Diagnostics for deitality}\label{sec:diagnostics}
 
-I characterize deitality as a structural profile whose core comprises distributional restrictions but also includes a strong tendency to mark semantically definite referents. The profile is level-sensitive. Sometimes the relevant object is a determinative lexeme (\mention{the}, \mention{this}, genitive \mention{'s}); sometimes it's a DP in a particular construction; sometimes it's a diachronic lineage whose forms preserve inherited distributional residue. Deitality is therefore not a single feature borne by one grammatical object in all contexts. It's the category that answers a syntactician's question: which forms and constructions support the same projectible distributional inferences?
+I characterize deitality as a structural profile whose core comprises distributional restrictions. It also shows a strong empirical tendency to mark semantically definite referents, but that tendency belongs to the correlation between profiles rather than to the definition of deitality itself. The profile is level-sensitive. Sometimes the relevant object is a determinative lexeme (\mention{the}, \mention{this}); sometimes it's a genitive NP in determiner function; sometimes it's an NP in a particular construction; sometimes it's a diachronic lineage whose forms preserve inherited distributional residue. Deitality is a category distributed across levels rather than a single feature borne by one grammatical object in all contexts. It's the category that answers a syntactician's question: which forms and constructions support the same projectible distributional inferences?
 
-This section develops four diagnostics of unequal strength: existential \mention{there}, partitive \mention{of}, identificational hosting, and \mention{one}-substitution. Partitive \mention{Y}-licensing is the strongest syntactic diagnostic. Existential \mention{there} is constructional and information-structurally sensitive. Identificational hosting is mixed: it reflects morphosyntax, specificity, and discourse anchoring. \mention{One}-substitution is a fragile corroborating cue. The tests are useful precisely because they do not reduce to one another.
+This section develops three uneven diagnostics plus one residue pattern: existential \mention{there}, domain-establishing \mention{Y} complements in true partitives, and identificational hosting. The partitive diagnostic is the strongest syntactic test. Existential \mention{there} depends on construction and information structure. Hosting is mixed: it reflects morphosyntax, specificity, and discourse anchoring. Bare-\mention{one} behaviour is fragile corroborating residue, not a core diagnostic. The tests are useful precisely because they don't reduce to one another.
 
 \subsection{Existential \mentionhead{there}}
 
@@ -162,36 +169,37 @@ The definiteness effect in existential \mention{there} constructions is well doc
 
 \ea 
 \label{ex:there-neutral}
-    \ea \textit{\textsuperscript{*}There is the key on the table.}
+    \ea \textit{\textsuperscript{*}There's the key on the table.} (neutral existential reading)
     \ex \textit{\textsuperscript{*}There are those books I mentioned.}
-    \ex \textit{There is a key on the table.} (non-deital, acceptable)
+    \ex \textit{There's a key on the table.} (non-deital, acceptable)
     \z
 \z
 
-The effect is sensitive to prosody: list/presentational intonation can license otherwise dispreferred pivots \parencite{BirnerWard1998}:
+\noindent The effect is sensitive to prosody: list/presentational intonation can license otherwise dispreferred pivots \parencite{BirnerWard1998}:
 
 \ea 
 \label{ex:there-list}
     \ea \textit{There's THAT book again.}
-    \ex \textit{Well, there's the KEYS, the wallet...}
+    \ex \textit{Well, there's THE KEYS, the wallet...}
     \z
 \z
 
+\noindent The initial \mention{there} in such cases can be heard as locative rather than expletive, which makes the intended presentational reading harder to obtain.%
 \ifdefined\blindsubmission
-A reader noted that the initial \mention{there} in such cases can be heard as locative rather than expletive, which makes the intended presentational reading harder to obtain.
+\footnote{Thanks to a reader for pressing this point.}
 \else
-Cris Chatterjee noted that the initial \mention{there} in such cases can be heard as locative rather than expletive, which makes the intended presentational reading harder to obtain.
+\footnote{Thanks to Cris Chatterjee for pressing this point.}
 \fi
 
-I treat this as a controllable neutralization: under neutral prosody, deital determinatives resist the pivot position; marked prosody can ameliorate the effect. The diagnostic is therefore calibrated to neutral prosody.
+I treat this as a controllable neutralization: under neutral prosody, deital determinatives resist the pivot position; marked prosody can ameliorate the effect. I calibrate the diagnostic to neutral prosody.
 
 This calibration matters. Existential \mention{there} has semantic and information-structure inputs, so list readings, recurrence readings, locative/expletive ambiguity, and narrative frames can affect judgments. I use it as a ranked cue under neutral prosody and non-narrative frames, not as sufficient evidence for deitality.
 
-\textcite{McNally2011} is especially important because the definiteness restriction is not treated there as a simple surface-form ban. McNally reviews semantic accounts on which the pivot has to be property-like and pragmatic accounts on which the pivot is constrained by discourse status or information structure; her own earlier analysis is explicitly mixed. I accept that lesson. The \mention{there} diagnostic does not by itself show a morphosyntactic category distinct from definiteness. Its value here is comparative: it patterns with the profile under neutral conditions, but it dissociates from the harder partitive diagnostic under prosodic manipulation. The contrast between prosodically defeasible \mention{there} effects and prosodically rigid partitive \mention{Y}-licensing is what makes the cue useful for deitality.
+\textcite{McNally2011} is especially important because the definiteness restriction is treated there as more than a simple surface-form ban. McNally reviews semantic accounts on which the pivot has to be property-like and pragmatic accounts on which the pivot is constrained by discourse status or information structure; her own earlier analysis is explicitly mixed. I accept that lesson. The \mention{there} diagnostic doesn't by itself show a morphosyntactic category distinct from definiteness. Its value here is comparative: it patterns with the profile under neutral conditions, but it dissociates from the harder partitive diagnostic under prosodic manipulation. That contrast makes the cue useful, but it isn't decisive on its own; §\ref{sec:objections} returns to the semantic-bundle worry and adds acquisition and weak-definite tests.
 
-\subsection{Partitive \mentionhead{of}}
+\subsection{Partitive complements}
 
-In true partitive constructions (\mention{X of Y} with subset semantics), the relevant diagnostic is not article-marked definiteness as such but the availability of a delimited domain. I state the diagnostic this way: the \mention{Y} complement has to be definite-like or independently domain-establishing \parencite{Barker1998,Hoeksema1996}:
+In true partitive constructions (\mention{X of Y} with subset semantics), the relevant diagnostic belongs to the Partitive Constraint tradition \parencite{ladusaw1982,abbott1996,Barker1998,Hoeksema1996}. The issue is the availability of a delimited domain rather than \mention{the}-marked definiteness as such. I state the diagnostic conservatively: the \mention{Y} complement has to be definite-like or independently domain-establishing.
 
 \ea 
 \label{ex:part-good}
@@ -202,16 +210,16 @@ In true partitive constructions (\mention{X of Y} with subset semantics), the re
 
 \ea 
 \label{ex:part-bad}
-*\textit{Two\upslash several\upslash many of some students left.}
+*\textit{Several of some students left.}
 \z
 
-This selectional restriction is stable and not ameliorated by prosody. The partitive literature contains complications, including examples such as \mention{one of several options}, \mention{one of many problems}, and \mention{two of a number of applicants}. Those cases show that the domain-establishing condition can be satisfied without the article \mention{the}. They do not erase the diagnostic contrast at issue here: ordinary weak indefinites like \mention{some students} do not behave like \mention{the students}, \mention{these students}, or genitive DPs as partitive complements. Attempts to use weak \mention{Y} are either rejected outright, receive a specialized set-denoting interpretation, or are reanalyzed as measure/fraction constructions (\mention{half of a cake}), which have different semantics.
+\noindent This selectional restriction is stable and isn't ameliorated by prosody. The partitive literature contains complications, including examples such as \mention{one of several options}, \mention{one of many problems}, and \mention{two of a number of applicants} \parencite{ladusaw1982,abbott1996}. Those cases show that the domain-establishing condition can be satisfied without \mention{the}. They also show why the diagnostic shouldn't be stated as a simple article-definiteness test. The narrower contrast is still useful: ordinary weak indefinites like \mention{some students} don't behave like \mention{the students}, \mention{these students}, or genitive NPs as partitive complements. Attempts to use weak \mention{Y} are either rejected outright, receive a specialized set-denoting interpretation, or are reanalyzed as measure/fraction constructions (\mention{half of a cake}), which have different semantics.
 
 The \mention{Y} slot is what matters. Elements in \mention{X}, including quantifiers like \mention{all} or \mention{both} when they appear as modifiers, are irrelevant to this diagnostic.
 
 \subsection{Identificational hosting}
 
-Deital determinatives are preferred hosts for nonrestrictive modification, topics, and specificational subjects. Weak determinatives are degraded unless coerced to specific readings \parencite{Lambrecht1994}:
+I use \term{identificational hosting} as a cover term for environments that need a discourse-salient, identifiable NP as host: nonrestrictive modification, \mention{as for} topics, and specificational subjects (the copular type of \mention{The culprit is John}, distinct from the identificational \mention{That is John}). The requirement on the host NP is semantic and information-structural; the deital diagnostic is distributional. NPs with deital determiners satisfy these environments most readily, while NPs with weak determiners need independent anchoring, especially in topic and specificational frames. Nonrestrictive relatives are more permissive when the indefinite is independently anchored \parencite{Lambrecht1994}:
 
 \ea 
 \label{ex:host-good}
@@ -222,16 +230,16 @@ Deital determinatives are preferred hosts for nonrestrictive modification, topic
 \z
 
 \ea 
-\label{ex:host-bad}
-    \ea \textsuperscript{??}\textit{A book, which I bought yesterday, is excellent.}
+\label{ex:host-mixed}
+    \ea \textit{A student of mine, who you met, just won a prize.} (anchored indefinite)
     \ex \textsuperscript{??}\textit{As for a report, I filed it.}
     \ex \textsuperscript{??}\textit{A culprit is John.}
     \z
 \z
 
-The degradation correlates with information structure. Identificational constructions presuppose that the referent is already salient or identifiable to the hearer. Weak indefinites introduce new referents and clash with this presupposition. This diagnostic is therefore mixed rather than purely structural: examples such as \mention{A colleague of mine, who you may remember from York, emailed me} improve because specificity and discourse anchoring supply part of what the construction requires. The prediction is graded, not categorical.
+\noindent The degradation correlates with information structure. These host constructions presuppose that the referent is already salient or identifiable to the hearer. Weak indefinites introduce new referents and clash with this presupposition unless other material supplies anchoring. This makes the diagnostic mixed rather than purely structural: examples such as \mention{A colleague of mine, who you may remember from York, emailed me} improve because specificity and discourse anchoring supply part of what the construction requires. The prediction is graded, not categorical.
 
-\subsection{\mentionhead{One}-substitution}
+\subsection{Narrow \mentionhead{one}-substitution residue}
 
 Non-deital determinatives freely allow bare anaphoric \mention{one} across clauses:
 
@@ -240,79 +248,51 @@ Non-deital determinatives freely allow bare anaphoric \mention{one} across claus
 \textit{I bought a red pen and you bought one too.}
 \z
 
-Deital packages resist bare \mention{one} in the same configuration:
+\noindent Deital antecedents resist bare \mention{one} on readings where the continuation would have to preserve the already-determined token rather than introduce another instance of the nominal property:
 
 \ea 
 \label{ex:one-strong}
-*\textit{I bought the\upslash this\upslash my red pen and you bought one too.}
+\textsuperscript{*}\textit{I bought the\upslash this\upslash my red pen and you bought one too.} (intended: the same contextually determined pen)
 \z
 
-Determiner function + \mention{one} (\mention{this one}, \mention{the one}) is grammatical but represents a different construction: \mention{one} is a noun with its own determiner, not a determinative phrase in fused-determiner--head function \parencite[332--333]{HuddlestonPullum2002}. I exclude this construction from the diagnostic.
+\noindent Determiner function + \mention{one} (\mention{this one}, \mention{the one}) is grammatical but represents a different construction: \mention{one} is a noun with its own determiner, not a determinative phrase in fused-determiner--head function (one word filling the determiner and head positions together, as in \mention{I'll take these}) \parencite[332--333]{HuddlestonPullum2002}. I exclude this construction from the residue pattern.
 
-This test is narrower than the others, more subject to dialectal variation, and sensitive to what the antecedent of \mention{one} is taken to be. Many speakers accept examples like \mention{I found the perfect apartment and she found one too}, where \mention{one} recovers the nominal property rather than the whole DP. I therefore treat the test as a corroborating cue rather than a primary diagnostic.
+The limitation is built into the analysis. In \CGEL{} terms, bare \mention{one} is a nominal anaphor; it isn't a device for recovering a whole determiner--head package. Many speakers accept examples like \mention{I found the perfect apartment and she found one too}, where \mention{one} recovers the nominal property rather than the determined phrase. The test is useful only when the context makes the determined-token reading salient and the property-anaphoric reading pragmatically unavailable. I treat it as a residue to discuss rather than as an inventory column.
 
 \subsection{Summary: Converging evidence for a grammatical profile}
 
-These four diagnostics converge on a morphosyntactic profile, but they aren't equally stable. Prototypical deital determinatives resist existential pivots, satisfy the domain-establishing \mention{Y} condition in partitives, host identificational constructions naturally, and disprefer bare \mention{one}-substitution. Prototypical non-deital determinatives show the opposite pattern. No single diagnostic defines the profile. Partitive \mention{Y}-licensing has the greatest syntactic weight; existential \mention{there} and hosting show how the profile interacts with information structure; \mention{one}-substitution is a narrow residue. What matters is ranked convergence across tests, a profile that essentialist accounts cannot capture.
+These diagnostics converge on a morphosyntactic profile, but they aren't equally stable. Prototypical deital determinatives resist existential pivots, satisfy the domain-establishing \mention{Y} condition in partitives, and host identificational constructions naturally. They also show the narrow \mention{one}-substitution residue just described. Prototypical non-deital determinatives show the opposite pattern on the stronger diagnostics. No single diagnostic defines the profile. Partitive \mention{Y}-licensing has the greatest syntactic weight; existential \mention{there} and hosting show how the profile interacts with information structure; \mention{one}-substitution is too fragile for category placement on its own. What matters is ranked convergence across tests, with residue patterns used only as corroboration.
 
-In applying the tests (see Appendix~\ref{sec:inventory}), many determinatives show partial membership. Items like \mention{each}, \mention{every}, \mention{all}, and \mention{both} resist existential pivots (patterning deitally) but fail other diagnostics (patterning non-deitally). A projectible-profile account predicts this graded membership: different degrees of property convergence. The diagnostic convergence defines a space where \mention{the} and demonstratives occupy the prototypical centre while other items show gradient participation.
+In applying the tests (see Appendix~\ref{sec:inventory}), many determinatives show partial profile convergence. Items like \mention{each}, \mention{every}, \mention{all}, and \mention{both} resist existential pivots (patterning deitally) but fail other diagnostics (patterning non-deitally). The projectibility-first account predicts this internal gradedness: different degrees of property convergence. The diagnostic convergence maps a space where \mention{the} and demonstratives occupy the prototypical centre while other items supply less decisive evidence about where the boundary falls. I use \term{Mixed} in the inventory as an evidential status: it marks partial convergence and uncertainty about placement, not literal half-membership.
 
-This property pluralism is central to the framework: just as biological species are characterized by multiple co-tending traits (morphology, genetics, behaviour) with none metaphysically prior, deitality is characterized by multiple co-tending distributional properties with none foundational. The diagnostics are not interchangeable, but their dissociations are informative rather than embarrassing.
+This property pluralism is central to the framework: just as biological species are characterized by multiple co-tending traits (morphology, genetics, behaviour) with none metaphysically prior, deitality is characterized by multiple co-tending distributional properties with none foundational. The diagnostics differ, and their dissociations are informative rather than embarrassing.
 
-Some diagnostics are more reliable in practice. Some show more cross-linguistic stability; some resist dialectal variation better; some apply more broadly. The \mention{one}-substitution test, for instance, is more subject to dialectal variation than partitive \mention{Y}-licensing, making it a less stable probe in fieldwork. These are empirical differences in diagnostic utility and in the grammatical levels being tested, not grounds for reducing the profile to one semantic feature.
-
-These diagnostics target distributional behaviour rather than semantic contribution. This does not mean the deital profile lacks semantic tendencies: it correlates strongly with identifiability, wide scope, and anaphoric tracking. But these tendencies are part of the profile, not necessary conditions for membership. A determinative can be deital while contributing non-prototypical semantics: weak definites lack token-level uniqueness; generic definites refer to kinds. The morphosyntactic profile is what remains stable across this semantic variation.
-
-The term \term{deitality} is therefore not a synonym for older labels such as \term{strong}, \term{specific}, \term{presuppositional}, \term{D-linked}, \term{familiar}, or \term{unique}. Those labels name semantic, discourse, or construction-specific properties. A Milsark-style strong/weak contrast captures part of the existential pattern but does not predict the same behaviour in partitive \mention{Y}-licensing or narrative \mention{this}. Specificity and D-linking improve hosting but do not by themselves supply domain-establishing \mention{Y} complements. Familiarity and uniqueness describe the semantic centre of definiteness but overpredict alignment in weak definites and names. Deitality names the projectible distributional profile whose prototype comes from demonstrative-derived determinatives and whose residues persist when those semantic properties come apart.
+These diagnostics target distribution, not semantic contribution. Deital forms often mark identifiable referents, but that correlation is an empirical fact to explain rather than a defining condition. A determinative can be deital while contributing non-prototypical semantics: weak definites lack token-level uniqueness; generic definites refer to kinds. The morphosyntactic profile is what remains stable across this semantic variation.
 
 Section~\ref{sec:mechanisms} identifies the processes that source and stabilize this diagnostic profile.
 
-\section{Sources and stabilizers of the deital profile}\label{sec:mechanisms}
+\section{Sources, stabilizers, and predictions of the deital profile}\label{sec:mechanisms}
 
-The central claim of a projectible-profile account is that property convergence is not accidental. For deitality, the evidence is strongest for a diachronic source and a learning filter: grammaticalization creates much of the profile, and acquisition plausibly helps reproduce it in each generation. Other processes (interactive alignment, prestige selection, and iterated transmission) are plausible stabilizers of particular parts of the profile, especially at gradient margins. I therefore treat them as ranked contributors rather than as proof of a single rich homeostatic mechanism. For definiteness, the relevant pressures are discourse-pragmatic: information structure and common ground management create correlations among identifiability, uniqueness, and anaphoric recoverability, while also reinforcing the tendency for definite referents to be marked deitally.
+The central claim of the projectibility-first account is that property convergence isn't accidental. For deitality, the evidence is strongest for a diachronic source and a learning filter: grammaticalization creates much of the profile, and acquisition plausibly helps reproduce it in each generation. Other processes (interactive alignment, prestige selection, and iterated transmission) are plausible stabilizers of particular parts of the profile, especially at gradient margins. I treat them as ranked contributors rather than as proof of a single rich homeostatic mechanism. For definiteness, the relevant pressures are discourse-pragmatic: information structure and common ground management create correlations among identifiability, uniqueness, and anaphoric recoverability.
 
-The previous section established diagnostic properties that converge to define the deital profile. This section identifies sources and stabilizers operating at distinct timescales and derives falsifiable predictions about synchronic grammar.
+The previous section established diagnostic properties that converge in the deital profile. This section identifies sources and stabilizers operating at distinct timescales and derives falsifiable predictions about synchronic grammar.
 
 \subsection{Sources and stabilizers across timescales}\label{subsec:five-mechanisms}
 
-Grammaticalization creates much of the profile over phylogenetic time. Cross-linguistically, definite articles arise primarily from demonstratives \parencite{greenberg1978,diessel1999}. As a demonstrative grammaticalizes (weakening phonologically and broadening functionally), it does not shed its distributional properties. It drags them along.
+Grammaticalization creates much of the profile over phylogenetic time. Cross-linguistically, definite markers arise primarily from demonstratives \parencite{greenberg1978,diessel1999}. As a demonstrative grammaticalizes (weakening phonologically and broadening functionally), some distributional properties can persist while the speaker-anchored deictic meaning bleaches. The conjecture is selective, not automatic: properties anchored in constructional selection or entrenched morphosyntactic frames should be better candidates for persistence than properties that depend on live speaker-centred deixis. Reanalysis happens utterance by utterance in contexts where the old demonstrative still satisfies the local frame. As the semantic function generalizes from pure deixis to broader identifiability marking, the frame can remain. I call this \term{property dragging}: grammaticalization can preserve formal behaviour while semantic function shifts.
 
-Demonstratives inherently show many properties of the deital profile. They're deictic, which makes them poor candidates for introducing discourse-new referents (hence resistance to existential \mention{there}). They're referential and often presuppositional, which makes them natural hosts for identificational constructions. They pattern with definites in partitive constructions cross-linguistically.
+English \mention{the} shows this pattern. Historically derived from a demonstrative, it resists existential pivots, appears as a domain-establishing \mention{Y} in partitives, and hosts identificational constructions, all properties compatible with its deictic source. Weak definites, where \mention{the} appears without uniqueness, represent cases where the morphosyntactic frame has outlived the original semantic restriction. The grammaticalization account predicts that items sharing a deictic source should share distributional properties most reliably where those properties are tied to constructional frames. English offers a modest lineage trace of this kind: the /ð/-initial determinatives (\mention{the}, \mention{this}, \mention{that}, \mention{these}, \mention{those}) are all deital and all belong to the inherited Germanic demonstrative family. I return to the limited evidential role of this trace in §\ref{sec:objections}.
 
-When a demonstrative becomes an article, these distributional tendencies persist. The resulting article inherits the morphosyntactic frame even as its semantic function generalizes from pure deixis to broader identifiability marking. I call this property dragging: grammaticalization preserves formal behaviour while semantic function shifts.
+First language acquisition filters the hypothesis space in childhood. Each new generation has to acquire the grammatical system, and cultural transmission favours patterns that are stable and learnable \parencite{kirby2014}. Children acquire deital determinatives early, often overgeneralizing \mention{the} to contexts where adults use \mention{a} \parencite{maratsos1976,rozendaalbaker2008}. This doesn't have to be pure semantic confusion. It's compatible with a structural-learning story: children identify a high-frequency form (\mention{the}) plus parts of its distributional frame and apply it broadly before refining the semantic conditions.
 
-English \mention{the} shows this pattern. Historically derived from a demonstrative, it resists existential pivots, appears as a domain-establishing \mention{Y} in partitives, and hosts identificational constructions, all properties traceable to its deictic source. Weak definites, where \mention{the} appears without uniqueness, represent cases where the morphosyntactic frame has outlived the original semantic restriction.
+The stronger developmental claim remains conditional. Children may master some positions for \mention{the} before the full pragmatic conditions on adult use. The overgeneralization asymmetry is still positive evidence for a structural-learning story: children seem to latch onto \mention{the} and parts of its frame before the adult semantic conditions are fully in place. But the relative timing of specific restrictions, including partitive \mention{Y}-licensing, still needs direct evidence. If borne out, this would support a bootstrapping path in which distributional frames help learners infer semantic function, and vice versa. Until that evidence exists, bootstrapping is a forecast, not a result. Each generation re-creates the deitality category from distributional and interpretive evidence, so children shouldn't learn pivot resistance, partitive \mention{Y}-licensing, and identificational hosting as wholly unrelated facts.
 
-The grammaticalization account predicts that items sharing a deictic source should share distributional properties. English offers a modest lineage residue of this kind. The /ð/-initial determinatives (\mention{the}, \mention{this}, \mention{that}, \mention{these}, \mention{those}) are all deital and all belong to the inherited Germanic demonstrative family. The pattern is not a diagnostic: other function words like \mention{then}, \mention{than}, and \mention{though} begin with /ð/ without being determinatives, and many deital items like genitives lack /ð/ entirely. But within determinatives, the phonological clustering usefully reminds us that the distributional profile is historically carried by forms. Property dragging operates on bundles: when demonstratives grammaticalize, they can carry along both distributional behaviour and phonological shape.
-
-First language acquisition filters the hypothesis space in childhood. Each new generation has to acquire the grammatical system. The acquisition process acts as a filter: only stable, learnable patterns survive transmission.
-
-Children acquire deital determinatives early, often overgeneralizing \mention{the} to contexts where adults use \mention{a} \parencite{maratsos1976,rozendaalbaker2008}. This need not be pure semantic confusion. It's compatible with a structural-learning story: children identify a high-frequency form (\mention{the}) plus parts of its distributional frame and apply it broadly before refining the semantic conditions.
-
-The stronger developmental claim remains conditional. Children may master some positions for \mention{the} before the full pragmatic conditions on adult use. The overgeneralization asymmetry is still positive evidence for a structural-learning story: children seem to latch onto \mention{the} and parts of its frame before the adult semantic conditions are fully in place. But the relative timing of specific restrictions, including partitive \mention{Y}-licensing, still needs direct evidence. If borne out, this would create a bootstrapping path: the distributional frame helps learners infer semantic function, and vice versa.
-
-On this view, acquisitional filtering helps maintain the profile's stability. Each generation re-creates the deitality category from distributional and interpretive evidence. The stronger prediction is that children should not learn pivot resistance, partitive \mention{Y}-licensing, and identificational hosting as wholly unrelated facts. They should show patterned asymmetries as they refine semantic conditions while preserving parts of the morphosyntactic frame.
-
-Interactive alignment and repair stabilize local patterns over seconds and minutes. In conversation, speakers converge on syntactic frames and repair misalignments \parencite{PickeringGarrod2004}. When a speaker produces a deital determinative in a dispreferred context, say \mention{There's the problem} under neutral prosody, hearers may flag the anomaly through correction, hesitation, or clarification requests. This feedback stabilizes local distributional patterns, but it does not by itself show a single control system maintaining deitality as a whole.
-
-The stabilizer operates largely below conscious awareness. Speakers do not explicitly reason about partitive \mention{Y}-licensing restrictions; they simply experience discomfort when hearing \mention{*two of some students} and either repair the utterance or signal non-comprehension. Over thousands of conversational exchanges, this microgenetic pruning reinforces the profile by penalizing violations and rewarding canonical patterns.
-
-Prestige-weighted selection shapes social stratification over decades. High-status variants spread faster through communities \parencite{labov2001,eckert2000}, pushing some constructions toward categorical bans while allowing sociolinguistic stratification at gradient margins.
-
-For deitality, this stabilizer may help explain why some weak definite frames (British \mention{in hospital}) become dialectally entrenched while others never stabilize. Prestige effects can override frequency: highly frequent non-standard patterns (\mention{them books} in some dialects) remain marked because standard \mention{those books} carries social prestige. Conversely, low-frequency prestige forms can resist elimination.
-
-This process does not create the deital profile (grammaticalization and acquisition supply the main explanation), but it can shape which variants survive community transmission and which get filtered out. This explains why structural bans often correlate with social evaluation even when the underlying constraint is cognitive or morphosyntactic.
-
-Iterated cultural transmission filters the system across generations. The transmission bottleneck amplifies learnability biases and filters out mappings that exceed processing or memory constraints \parencite{kirby2014}. Each generation learns the language from finite input, necessarily discarding patterns that are too complex, too rare, or too inconsistent to acquire reliably.
-
-This multi-generational ratchet explains why structural bans converge across dialects even as surface patterns diverge. Determinative extraction (\mention{*Which did you buy car?}) is categorically rejected in all English dialects because the underlying constraint, no stranding of determinatives, is simple, learnable, and stable under transmission. Weak definite frames, by contrast, show dialectal variation because they're conventionalized idioms: learnable but not structurally forced.
-
-Iterated transmission can also preserve the phonological residue noted in the grammaticalization discussion above. The /ð/-initial family need not have any functional advantage; it persists because the forms themselves are stable under transmission.
+Other familiar stabilizers are more programmatic here. Interactive alignment, prestige-weighted selection, and iterated cultural transmission are real mechanisms in language use and change \parencite{PickeringGarrod2004,labov2001,eckert2000,kirby2014}, but they're too general to explain deitality by themselves. To make them deitality-specific, we'd need signatures such as repair sequences targeting deital misuse, socially stratified article or demonstrative variants tied to the diagnostics, or transmission effects that preserve selectional restrictions more strongly than local weak-definite frames. The evidence reviewed below uses these processes mainly to locate where variation should appear. Grammaticalization and acquisition carry the core maintenance claim.
 
 \subsection{Causal architecture: How the sources and stabilizers interact}
 
 
-Figure~\ref{fig:deital-maintainers} schematizes how these processes can stabilize the deital profile. Grammaticalization creates much of the initial bundle; the other processes reproduce, filter, or reshape it at different timescales.
+Figure~\ref{fig:deital-maintainers} schematizes where stabilization could enter the deital profile. Grammaticalization creates much of the initial bundle; the other processes are candidate sites where the profile can be reproduced, filtered, or reshaped at different timescales.
 
 \begin{figure}[htbp]
 \centering
@@ -341,7 +321,7 @@ Figure~\ref{fig:deital-maintainers} schematizes how these processes can stabiliz
   partitive \mention{Y}-licensing\\
   \mention{There}-resistance\\
   Identificational hosting\\
-  \mention{One}-substitution blocking
+  narrow \mention{one} residue
 };
 
 % Left: Maintenance processes
@@ -366,177 +346,123 @@ Figure~\ref{fig:deital-maintainers} schematizes how these processes can stabiliz
   node[below, font=\scriptsize] {stabilizes} (acq.south);
 
 \end{tikzpicture}
-\caption{Processes stabilizing the deital profile. Grammaticalization (top) created much of the initial property bundle through demonstrative-to-article pathways. The other processes reproduce, filter, or reshape the profile at different timescales: iterated transmission filters for learnability across generations; prestige-weighted selection shapes social distribution over decades; interactive alignment maintains patterns in real-time conversation; first language acquisition helps reproduce the profile in each generation. The profile's stability feeds back to enable successful acquisition (bottom), creating a self-reinforcing cycle. Solid arrows show primary causation; dashed arrow shows feedback.}
+\caption{Candidate sources and stabilizers of the deital profile. Grammaticalization (top) created much of the initial property bundle through demonstrative-to-definite-marker pathways. The other processes identify possible sites of reproduction, filtering, or reshaping: iterated transmission across generations; prestige-weighted selection over decades; interactive alignment in real-time conversation; first language acquisition in childhood. The dashed arrow marks feedback between learnability and stability.}
 \label{fig:deital-maintainers}
 \end{figure}
 
-The architecture reveals why deitality is stable yet variable. Grammaticalization creates much of the initial property bundle through demonstrative-to-article pathways. Acquisition filters this input, preserving learnable patterns. Interactive alignment may stabilize the profile in real-time conversational practice. Prestige selection shapes which variants survive socially. Iterated transmission filters patterns that cannot survive the multi-generational bottleneck.
-
-The feedback loop at the bottom of Figure~\ref{fig:deital-maintainers} is critical. Once the profile stabilizes, it becomes the target of acquisition: children learn the stable pattern, which reinforces its stability in the next generation. This positive feedback explains why the deital profile persists despite constant pressure from analogy, frequency effects, and contact-induced change.
+The feedback arrow isn't an explanation by itself. Stable things get learned, and learned things can stay stable. The deital profile needs a more specific persistence story: high token frequency in the article/demonstrative family plus hard selectional anchors such as partitive \mention{Y}-licensing make it a better candidate for reproduction than lower-frequency or socially fragile patterns.
 
 \subsection{Why deitality and definiteness correlate imperfectly}\label{subsec:autonomy}
 
-Grammaticalization and acquisition explain why deitality exists as a stable morphosyntactic profile. But why does it correlate with definiteness? And why is the correlation not perfect?
-
-The correlation arises because the deictic sources of articles were themselves sensitive to information structure. Demonstratives mark salient, often identifiable referents. As they grammaticalize, this functional tendency becomes conventionalized. Speakers and hearers coordinate on using the article for identifiable referents because that's what the form conventionally signals.
+Grammaticalization and acquisition explain why deitality exists as a stable morphosyntactic profile. But why does it correlate with definiteness, and why isn't the correlation perfect? The correlation arises because the deictic sources of definite markers were themselves sensitive to information structure. Demonstratives mark salient, often identifiable referents. As they grammaticalize, this functional tendency becomes conventionalized. Speakers and hearers coordinate on using \mention{the} for identifiable referents because that's what the form conventionally signals.
 
 This coordination is maintained by communicative efficiency. Speakers remember frequent pairings, \mention{the} plus unique/familiar referents, and hearers expect them. When speakers violate expectations, hearers accommodate by adjusting their domain of evaluation, coercing to specific readings, or reanalyzing the structure. This creates a stable equilibrium where form and function align statistically.
 
-But the correlation is not perfect because grammaticalization preserves formal residue. Weak definites like \mention{take the bus} reflect conventionalized frames where \mention{the} appeared because of institutional or habitual association, and that morphosyntactic pattern persisted even as the semantic contribution remained indefinite. The distributional residue (appears with \mention{the}, resists modification, allows only certain verb--noun pairs) is the grammaticalized fossil of a construction, not of a semantic feature.
+But the correlation remains imperfect because grammaticalization preserves formal residue. Weak definites like \mention{take the bus} show the pattern especially clearly: a conventionalized \mention{the}-frame can persist while ordinary token-level definiteness weakens. Section~\ref{sec:cases} develops the case in detail.
 
-The mismatch also reflects constructional autonomy. Once a morphosyntactic pattern is established, it can be recruited for new functions. \mention{The poor} and \mention{the unknown} as fused modifier--head NPs use \mention{the} to signal definiteness at the constructional level, not the lexical level. The frame itself becomes meaningful, semi-independent of the article's core function.
+The mismatch also reflects constructional autonomy. Once a morphosyntactic pattern is established, it can be recruited for new functions \parencite{FrancisMichaelis2003}. \mention{The poor} and \mention{the unknown} as fused modifier--head NPs use \mention{the} to signal definiteness at the constructional level, not the lexical level. The frame itself becomes meaningful, semi-independent of the core function of \mention{the}.
 
-\subsection{Projectibility tests: Evidence that deitality is a useful category}
+\subsection{Predictions from the profile}
 
-A category earns its place by supporting inductive and explanatory practice. Deitality earns that place when partial evidence about its profile lets us predict untested behaviour. Recognizing a deital profile should tell us something new about constructions, dialects, and learning paths.
+A category earns its place by supporting inductive and explanatory practice. Deitality earns that place when partial evidence about its profile lets us predict untested behaviour. The predictions below make that payoff explicit: they target prosody, specificity, dialectal interpretation, and acquisition.
 
-The first test concerns residual behaviour under semantic mismatch. Constructional mismatches provide the sharpest test. Once a construction recruits deital morphology while relaxing canonical definiteness, the projectibility-first account predicts selective residue rather than global weakening. Narrative \mention{this} is the clearest case. If \mention{There was this guy at the door} reflects constructional recruitment of deital form, we should expect the construction to license narrative presentation while preserving other deital restrictions:
-\begin{itemize}
-\item \mention{There was this guy at the door...} remains acceptable because the construction packages narrative presentation with deital morphology.
-\item A singular narrative \mention{this guy} cannot supply the plural domain required by \mention{two of}; plural \mention{these guys} can do so only by establishing a referential group.
-\item \mention{*I met this guy and you met one too} remains bad on the narrow reading where bare \mention{one} has to recover the DP package rather than merely the nominal property.
-\end{itemize}
-That inference is projectibility. A semantics-first analysis identifies discourse-new reference. The deitality analysis goes further and predicts which parts of the morphosyntactic profile should survive that semantic mismatch.
-
-The same logic applies to weak definites and generic definites. Once they're identified as semantically unusual but morphosyntactically deital, we should expect residual deital behaviour in diagnostics tied to constructional or selectional structure, not a free-for-all of indefinite behaviour. The category is useful because it supports those selective expectations.
-
-The second test is pathway-conditioned distribution. If deitality is sourced and stabilized by the processes in §\ref{subsec:five-mechanisms}, then grammaticalization pathway and transmission regime should shape where the profile holds together and where it loosens. The prediction is conditional.
-
-The convergence prediction is that acquisition and iterated transmission should make properties travel together more reliably than idiomatic frames tied to prestige or local convention.
-
-The divergence prediction is that institutional frames, register-sensitive uses, and socially marked constructions should vary more than core selectional restrictions.
-
-English already points in this direction. Dialects differ over weak definite frames such as \mention{in hospital} versus \mention{in the hospital}. But they do not vary freely over core determinative syntax. The projectibility-first account predicts that shape of variation because socially maintained frames are looser than selectional constraints reproduced in acquisition.
-
-Cross-linguistically, the stronger claim is also conditional: when article systems arise from demonstratives, they should be better candidates for deital-style clustering than systems with a different diachronic source or no article system at all. It predicts family resemblances in which some properties co-travel and others separate under pressure.
-
-The third test is the acquisitional trajectory. If the sources and stabilizers in §\ref{subsec:five-mechanisms} are correctly identified, child language acquisition should show specific developmental asymmetries. The category should let us infer a learning path from the internal organization of the profile.
-
-First, children should master some distributional restrictions on \mention{the} before the full pragmatic conditions on adult use.
-
-Second, children should overgeneralize \mention{the} to semantically inappropriate contexts while still respecting the clearest morphosyntactic constraints.
-
-Third, children should master syntactic constraints earlier than discourse-pragmatic ones. Partitive \mention{Y}-licensing should precede existential pivot resistance under neutral prosody.
-
-Existing acquisition data is compatible with the first two predictions \parencite{maratsos1976,rozendaalbaker2008}. The third remains to be tested systematically and should be read as a forecast rather than an established result. The logic is straightforward: syntactic selectional restrictions do not yield to prosodic manipulation (see §\ref{sec:prosody}), so children cannot use prosody as a repair strategy. Discourse-pragmatic constraints do yield to prosody, giving children a fallback. The predicted asymmetry follows from the different causal bases of the constraints.
-
-The source-and-stabilizer account also generates specific predictions about how the synchronic grammar behaves under manipulation. These predictions are the analytical payoff of the category. They distinguish this account from alternatives by targeting the interaction between morphosyntax, prosody, semantics, and development. Each prediction is falsifiable and testable.
+The predictions have different roles. Prosody and specificity are manipulation tests: they ask which diagnostics split when information structure or discourse anchoring is changed. The dialectal prediction asks where pathway-conditioned variation should appear. The acquisition prediction asks whether children learn hard selectional restrictions earlier than softer discourse-pragmatic ones. The force is cumulative. The prosody split is a within-account falsifier, but it doesn't by itself defeat every semantic-bundle rival; §\ref{sec:objections} returns to that point and adds acquisition and weak-definite existential tests.
 
 \subsection{Prosodic manipulation dissociation}\label{sec:prosody}
 
-Prosody should selectively rescue existential pivots but not partitive \mention{Y} complements.
-
-Prosody can rescue what discourse creates; prosody cannot rescue what syntax demands. Existential pivots yield to marked intonation because the construction is grammatical but mediated by information structure. Neutral prosody enforces presentational requirements; contrastive or list prosody can alter them. Partitive \mention{Y} complements resist all prosodic manipulation because their constraint is selectional: the construction requires an appropriate \mention{Y} domain, and prosody does not alter that relation.
+Prosody should rescue existential pivots, but not partitive \mention{Y} complements. That contrast isn't inferred from prosody alone. Partitive \mention{Y}-licensing is an internal complement relation in an \mention{X of Y} construction; it appears in written examples and embedded clauses, where intonation supplies no rescue path. Existential \mention{there}, by contrast, is separately sensitive to presentation, list readings, recurrence readings, and locative/expletive ambiguity. Prosody can rescue what discourse mediates; prosody can't rescue what selection demands.
 
 The relevant test cases are:
 \ea
-    \ea \textit{\textsuperscript{*}There is the key on the table.} (neutral prosody: unacceptable)
+    \ea \textit{\textsuperscript{*}There's the key on the table.} (neutral existential reading: unacceptable)
     \ex \textit{Well, there's THE KEY, the wallet...} (list prosody: acceptable)
-    \ex \textit{\textsuperscript{*}Two of some students passed.} (neutral prosody: unacceptable)
-    \ex \textit{\textsuperscript{*}TWO of SOME students passed.} (contrastive prosody: still unacceptable)
+    \ex \textit{\textsuperscript{*}Several of some students passed.} (neutral prosody: unacceptable)
+    \ex \textit{\textsuperscript{*}SEVERAL of SOME students passed.} (contrastive prosody: still unacceptable)
     \z
 \z
 
-If contrastive prosody rescues partitive \mention{Y} complements to the same degree it rescues existential pivots, the source-and-stabilizer explanation fails. The dissociation is predicted by the different causal bases (discourse-pragmatic vs. syntactic) of the two constraints.
+\noindent If contrastive prosody rescues partitive \mention{Y} complements to the same degree it rescues existential pivots, the projectibility-first account fails at this point. If the split holds, it supports the proposed causal contrast between discourse-pragmatic and syntactic constraints. It doesn't by itself settle the broader rivalry with semantic-bundle accounts; that stronger discriminating work comes from the cumulative pattern.
 
 \subsection{Specificity forcing partial amelioration}\label{sec:specific}
 
-Forcing specificity should improve indefinites in identificational environments without fully licensing them.
-
-Making an indefinite semantically specific does not change its non-deital morphosyntactic profile. The improvement should be measurable but fall short of canonical deital hosts because the morphosyntactic mismatch persists.
+Forcing specificity should improve indefinites in identificational environments without fully licensing them. A semantically specific indefinite keeps its non-deital morphosyntactic profile. The improvement should be measurable but fall short of canonical deital hosts because the morphosyntactic mismatch persists.
 
 The relevant test cases are:
 \ea
-    \ea \textit{\textsuperscript{??}A book, which I bought yesterday, is excellent.}
-    \ex \textit{\textsuperscript{?}A certain book, which I bought yesterday, is excellent.} (improved but still marked)
-    \ex \textit{The\upslash this book, which I bought yesterday, is excellent.} (fully acceptable baseline)
+    \ea \textit{\textsuperscript{??}As for a report, I filed it.}
+    \ex \textit{\textsuperscript{?}As for a certain report, I filed it.} (improved but still marked)
+    \ex \textit{As for the\upslash this report, I filed it.} (fully acceptable baseline)
     \z
 \z
 
-Acceptability ratings should show this ordering: baseline indefinite < specific indefinite < deital baseline. If specific indefinites reach deital baseline acceptability, the morphosyntactic/semantic distinction collapses. If they show no improvement, semantic contribution is irrelevant to hosting. Partial improvement confirms that both morphosyntactic form and semantic contribution matter.
+\noindent Acceptability ratings should show this ordering: baseline indefinite < specific indefinite < deital baseline. If specific indefinites reach deital baseline acceptability, the morphosyntactic/semantic distinction collapses. If they show no improvement, semantic contribution is irrelevant to hosting. Partial improvement confirms that both morphosyntactic form and semantic contribution matter.
 
 \subsection{Dialectal frame interpretation}
 
-Dialectal variation in institutional frames should preserve the institutional/activity reading in the licensed frame, while demonstratives and genitives should tend to force ordinary referential readings.
+The broad dialectal prediction is layered. The clean discriminator is specified in advance: a variety that allowed weak indefinites as ordinary partitive \mention{Y} complements would show a deeper grammar difference than a variety that differs only in institutional frames such as \mention{in hospital}. Other variation may affect article realization or presence, reinforced demonstratives, and demonstrative paradigms \parencite{Jones2002,RuppTagliamonte2019ZeroArticle,RuppTagliamonte2019ThisHere,HazenHamiltonVacovsky2011}. These are hypotheses about where to look, not an inference from stability to depth and back again.
 
-The relevant test is not whether demonstratives are accepted. Demonstratives are accepted: \mention{this hospital} and \mention{that hospital} are ordinary referential DPs. The question is whether the weak-definite or institutional reading survives. If dialectal variation is tied to conventionalized frames rather than free alternation in determinative syntax, replacing the frame's licensed form with a demonstrative should usually shift the interpretation from 'receiving institutional care' to 'located in a particular hospital'.
+The narrower standard-variety test concerns institutional frames. Dialectal variation in those frames should preserve the institutional/activity reading in the licensed frame, while demonstratives and genitive NPs should tend to force ordinary referential readings. The relevant test isn't whether demonstratives are accepted. Demonstratives are accepted: \mention{this hospital} and \mention{that hospital} are ordinary referential NPs. The question is whether the weak-definite or institutional reading survives. If the standard-variety difference is tied to conventionalized frames rather than free alternation in determinative syntax, replacing the frame's licensed form with a demonstrative should usually shift the interpretation from `receiving institutional care' to `located in a particular hospital'.
 
 The relevant test cases are:
 \ea
-    \ea British English: \textit{She is in hospital.} (institutional/activity reading)
-    \ex American English: \textit{She is in the hospital.} (institutional/activity reading available)
-    \ex Both dialects: \textit{She is in this hospital.} (acceptable, but preferentially ordinary locative/referential)
+    \ea British English: \textit{She's in hospital.} (institutional/activity reading)
+    \ex American English: \textit{She's in the hospital.} (institutional/activity reading available)
+    \ex Both dialects: \textit{She's in this hospital.} (acceptable, but preferentially ordinary locative/referential)
     \z
 \z
 
-If demonstratives preserve the institutional/activity reading just as well as the dialectally licensed weak-definite frame, then the account has overstated the special status of the frame. If they instead force a referential-location reading while the licensed frame preserves the institutional reading, the profile supports the intended inference: dialects vary over frames, not freely over deital syntax.
+\noindent If demonstratives preserve the institutional/activity reading just as well as the dialectally licensed weak-definite frame, then the account has overstated the special status of the frame. If they instead force a referential-location reading while the licensed frame preserves the institutional reading, the profile supports the intended inference: dialects vary over frames, not freely over deital syntax.
 
 \subsection{Acquisitional asymmetries}
 
-Children should show developmental asymmetries reflecting the sources and stabilizers at work.
-
-If the profile is maintained by acquisition, its internal structure should be visible in the learning path. Children should master hard syntactic constraints early because these lack prosodic repair paths. Softer discourse-pragmatic constraints should be mastered later.
+Children should show developmental asymmetries reflecting the sources and stabilizers at work. If the profile is maintained by acquisition, its internal structure should be visible in the learning path. Children should master hard syntactic constraints early because these lack prosodic repair paths. Softer discourse-pragmatic constraints should be mastered later.
 
 The relevant test cases are:
 \ea
-    \ea Children should correctly reject ungrammatical partitives like \mention{*two of some students} early (a hard syntactic rule).
+    \ea Children should correctly reject ungrammatical partitives like \mention{*several of some students} earlier than they master adult-like neutral-prosody restrictions on existential pivots.
     \ex Children may over-accept deitals in existential \mention{there} contexts, especially with list or recurrence intonation, before mastering the adult-like neutral-prosody constraint (a softer, discourse-pragmatic rule).
     \z
 \z
 
-Longitudinal acquisition studies should show partitive \mention{Y} violations rejected earlier (by age X) than existential violations under neutral prosody (by age Y > X). The gap reflects the availability of prosodic rescue for existentials but not partitives.
+\noindent No particular age estimate is offered. The prediction is an ordering: partitive \mention{Y} violations should be rejected before existential violations under neutral prosody are handled in fully adult-like ways. The gap reflects the availability of prosodic rescue for existentials but not partitives. The experiment is demanding because partitive syntax is late enough to require targeted testing, and partitive uses are sparse in spontaneous child and child-directed corpora \parencite{Stickney2007,BloomWynn1997}. The claim needs targeted comprehension work rather than casual production counts.
 
 \subsection{Distinguishing the projectibility-first account from alternatives}
 
-These four predictions also separate the projectibility-first account from nearby alternatives.
+These targeted predictions also separate the account from nearby alternatives. Milsark's strong/weak account captures the existential contrast, but doesn't predict the split among partitive \mention{Y}-licensing, hosting, and narrative \mention{this}. A uniqueness/familiarity account expects prosodic rescue to track referent identifiability more evenly across constructions, which leaves it with trouble explaining why list prosody improves \mention{there} pivots but not non-domain-establishing partitive \mention{Y} complements. A specificity or D-linking account predicts improvement under specificity forcing, but doesn't predict the persistent gap between specific indefinites and deital baselines in identificational hosting.
 
-A Milsark-style strong/weak account captures much of the existential contrast, but by itself does not predict why partitive \mention{Y}-licensing, hosting, and narrative \mention{this} split in the particular ways described above.
+The more local alternatives miss different projections. A frame-by-frame account can describe each local frame, but it doesn't by itself predict projection across diagnostics: knowing that an item is deital should support expectations about partitives, hosting, prosody, and mismatch residue. A purely diachronic account explains why the family exists historically, but doesn't explain why the diagnostics are synchronically ranked or why partitive \mention{Y}-licensing resists prosodic rescue more strongly than existential pivots. A simple feature account predicts all-or-nothing specificity effects rather than partial amelioration. An arbitrary dialect account predicts local frame differences without systematic preservation or loss of institutional readings.
 
-A uniqueness/familiarity account expects prosodic rescue to track referent identifiability more evenly across constructions. It therefore has trouble explaining why list prosody improves \mention{there} pivots but not non-domain-establishing partitive \mention{Y} complements.
+The projectibility-first account does more than accommodate existing data; it generates empirical commitments about where diagnostics should split and where they should continue to travel together.
 
-A specificity or D-linking account predicts improvement under specificity forcing, but not the persistent gap between specific indefinites and deital baselines in identificational hosting.
+\section{Case studies: Weak definites, generic definites, and narrative \mentionhead{this}}\label{sec:cases}
 
-A frame-by-frame account can describe each local frame. It does not by itself predict projection across diagnostics: knowing that an item is deital should support expectations about partitives, hosting, prosody, and mismatch residue.
-
-A purely diachronic account explains why the family exists historically, but not why the diagnostics are synchronically ranked or why partitive \mention{Y}-licensing resists prosodic rescue more strongly than existential pivots.
-
-A simple feature account predicts all-or-nothing specificity effects rather than partial amelioration.
-
-An arbitrary dialect account predicts local frame differences without systematic preservation or loss of institutional readings.
-
-The predictions target the interaction between morphosyntax, prosody, semantics, and development, exactly what the source-and-stabilizer account predicts. They're testable through experimental work (acceptability ratings, prosodic manipulation), corpus studies (dialectal patterns), and acquisition research (developmental timelines). The projectibility-first account does more than accommodate existing data; it generates novel empirical commitments.
-
-
-
-\section{Case studies: Weak and generic definites}\label{sec:cases}
-
-The explanatory power of the account is best demonstrated by long-standing puzzles. This section uses weak definites, generic definites, and narrative \mention{this} as stress tests for projectibility. Once a construction is identified as deital, the analysis should let us predict which morphosyntactic residue survives when canonical definiteness drops out \parencite{FrancisMichaelis2003}. These constructions do not show a perfectly clean syntax/semantics split. They show something more useful: the structural and semantic profiles are statistically coupled, partly independent, and leaky in predictable places.
+The explanatory power of the account is best demonstrated by long-standing puzzles. This section uses weak definites, generic definites, and narrative \mention{this} as stress tests for projectibility. Once a construction is identified as deital, the analysis should let us predict which morphosyntactic residue survives when canonical definiteness drops out \parencite{FrancisMichaelis2003}. These constructions don't show a perfectly clean syntax/semantics split. They show something more useful: the structural and semantic profiles are statistically coupled, partly independent, and leaky in predictable places.
 
 \subsection{Weak definites}
 
-So-called weak definite constructions like \mention{take the bus}, \mention{listen to the radio}, and \mention{go to the hospital} have troubled semantic theories for decades \parencite{carlsonsussman2005,aguilarguevarazwarts2010}. The puzzle is how \mention{the} appears without unique or familiar referents. Some semantic analyses invoke incorporation, kind reference, or minimal situations to preserve or refine a uniqueness-based account. Those mechanisms are important, but on their own they do not explain the full pattern: extreme sensitivity to modification, strict lexical restrictions, and enriched meanings (\mention{go to the hospital} = 'seek medical treatment').
+So-called weak definite constructions like \mention{take the bus}, \mention{listen to the radio}, and \mention{go to the hospital} have troubled semantic theories for decades \parencite{carlsonsussman2005,aguilarguevarazwarts2010}. The puzzle is how \mention{the} appears without unique or familiar referents. Some semantic analyses invoke incorporation, kind reference, or minimal situations to preserve or refine a uniqueness-based account. Those mechanisms are important, but on their own they don't explain the full pattern: extreme sensitivity to modification, strict lexical restrictions, and enriched meanings (\mention{go to the hospital} = `seek medical treatment').
 
-The projectibility-first account reframes the puzzle. Weak definites use deital morphology and inherit some distributional residue from ordinary \mention{the}-DPs, but they do not uniformly satisfy every diagnostic. That mixed behaviour is central. They lack the definiteness-marking function that typically accompanies \mention{the}; at the same time, they're not ordinary indefinites. They're pragmatically conventionalized frames in which deital form and token-level definiteness semantics have partly separated.
+The projectibility-first account reframes the puzzle. Weak definites use deital morphology and inherit some distributional residue from ordinary \mention{the}-marked NPs, but they don't uniformly satisfy every diagnostic. That mixed behaviour is central. They lack the definiteness-marking function that typically accompanies \mention{the}, but they behave unlike ordinary indefinites: they're pragmatically conventionalized frames in which deital form and token-level definiteness semantics have partly separated.
 
-They do not contribute token-level uniqueness or familiarity. \mention{Take the bus} does not presuppose a unique, identifiable bus; it calls up a conventional activity type. The morphosyntactic frame (verb + \mention{the} + noun in this construction) is stable and deital in form, but the semantic contribution is non-unique reference. This form--meaning split has a permeable boundary between grammar and interpretation.
+They don't contribute token-level uniqueness or familiarity. \mention{Take the bus} doesn't presuppose a unique, identifiable bus; it calls up a conventional activity type. The morphosyntactic frame (verb + \mention{the} + noun in this construction) is stable and deital in form, but the semantic contribution is non-unique reference. This form--meaning split has a permeable boundary between grammar and interpretation.
 
 The frame does encode stereotypicality and conventionalization, which creates a weak form of identifiability: hearers recognize the activity type even when the token referent is unspecified. But this falls short of the definiteness profile's core properties (token uniqueness and anaphoric recoverability). Weak definites occupy the gap: morphosyntactically deital, semantically indefinite, pragmatically conventional.
 
-The pattern follows from grammaticalization and constructional entrenchment. Grammaticalization preserves morphosyntactic frames while semantic function shifts. Weak definites can be analysed as entrenched constructional frames in which \mention{the} persists because of institutional or habitual association while token-level definiteness is weakened or absent. The distributional residue (appears with \mention{the}, resists modification, allows only certain verb--noun pairs) is the grammaticalized fossil of a construction, not of a semantic feature.
+The pattern can be described in terms of grammaticalization and constructional entrenchment, but that description has limits. Weak definites can be analysed as entrenched constructional frames in which \mention{the} persists because of institutional or habitual association while token-level definiteness is weakened or absent. Here the distributional residue (appears with \mention{the}, resists modification, allows only certain verb--noun pairs) is what remains of a construction after its ordinary token-level definiteness has weakened. This doesn't explain the full lexical inventory: why \mention{take the bus} and \mention{listen to the radio}, but not every institutionally associated noun. The account predicts selective residue once a weak-definite frame is identified; it doesn't derive every frame that English happens to contain.
 
-Weak definites do not pattern uniformly across all diagnostics. In partitive constructions, \mention{two of the buses} is available only on an ordinary referential reading; \mention{two of the bus} is odd on the weak institutional reading. This follows from the diagnostic ranking: partitive \mention{Y}-licensing is the hardest syntactic test and does not simply yield to constructional pressure. The weak reading is available only when the frame itself licenses it. Partitives require a referentially established domain; weak definites provide institutional or activity-type identifiability. The mismatch blocks the weak reading.
+Weak definites don't pattern uniformly across all diagnostics. In partitive constructions, \mention{two of the buses} is available only on an ordinary referential reading; \mention{two of the bus} is odd on the weak institutional reading. This follows from the diagnostic ranking: partitive \mention{Y}-licensing is the hardest syntactic test and doesn't simply yield to constructional pressure. The weak reading is available only when the frame itself licenses it. Partitives require a referentially established domain; weak definites provide institutional or activity-type identifiability. The mismatch blocks the weak reading.
 
 \subsection{Generic definites}
 
 So-called generic definites like \mention{The lion is noble} or \mention{The computer changed the world} pose a similar challenge. The definite singular is used for kind reference, not individual reference \parencite{carlson1977,krifka2004}. Uniqueness holds at the kind level, but the standard application of definiteness theory targets individuals.
 
-Again, the projectibility-first account provides clarity, though generic definites are a compatibility case rather than the strongest independent argument. A semantic account can treat \mention{the lion} as unique or maximal at the kind level. The deitality claim is different: whatever the correct kind semantics, the DP still uses the deital morphosyntactic profile. Its behaviour therefore belongs with the residue question: which distributional properties remain when individual-level definiteness is not at issue?
+Again, the projectibility-first account provides clarity, though generic definites are a compatibility case rather than the strongest independent argument. A semantic account can treat \mention{the lion} as unique or maximal at the kind level. The deitality claim is different: whatever the correct kind semantics, the NP still uses the deital morphosyntactic profile. Its behaviour belongs with the residue question: which distributional properties remain when individual-level definiteness isn't at issue?
 
 English allows multiple strategies for genericity: bare plurals (\mention{Lions are noble}), indefinite singulars (\mention{A lion is noble}), and definite singulars (\mention{The lion is noble}). The choice between them is conditioned by subtle semantic and pragmatic factors. Definite singulars are preferred for well-established kinds, particularly species or inventions conceived as singular abstract individuals.
 
-What the definite singular provides is the morphosyntactic profile of deitality. The semantics is kind reference, which operates at a different level from individual reference. Individual-level uniqueness and identifiability do not apply in the usual way; kind-level properties do. The syntax generates a deital phrase; semantics assigns it a generic interpretation. This supports the distinction, but it does not by itself force the distinction against every kind-based semantic account.
+What the definite singular provides is the morphosyntactic profile of deitality. The semantics is kind reference, which operates at a different level from individual reference. Individual-level uniqueness and identifiability don't apply in the usual way; kind-level properties do. The syntax generates a deital phrase; semantics assigns it a generic interpretation. This supports the distinction, but it doesn't by itself force the distinction against every kind-based semantic account.
 
-This point should not be treated as independent deital residue. Generic definites resist existential \mention{there} because the construction is geared to episodic, stage-level predication, and kind-level subjects are semantically incompatible. Bare-plural generics show the same pressure. The deitality claim is narrower: a definite singular generic retains deital morphosyntax while its semantic interpretation operates at the kind level.
+This point shouldn't be treated as independent deital residue. Generic definites resist existential \mention{there} because the construction is geared to episodic, stage-level predication, and kind-level subjects are semantically incompatible. Bare-plural generics show the same pressure. The deitality claim is narrower: a definite singular generic retains deital morphosyntax while its semantic interpretation operates at the kind level.
 
 \subsection{Indefinite \mentionhead{this} as constructional recruitment}
 
@@ -546,38 +472,32 @@ Colloquial English productively uses \mention{this} with discourse-new referents
 \ex \textit{So I'm walking home when this dog starts following me...}
 \z
 \z
-This pattern is frequent in speech and systematic across speakers, so it's not performance error or dialectal idiosyncrasy. But it strains the alignment between deitality and definiteness: demonstrative morphology appears without discourse-old or unique referents.
+\noindent This pattern is frequent in speech and systematic across speakers, so it isn't performance error or dialectal idiosyncrasy. But it strains the alignment between deitality and definiteness: demonstrative morphology appears without discourse-old or unique referents.
 
-The account explains this as \term{constructional recruitment}. Certain narrative-presentation constructions recruit deital morphology not for ordinary definiteness but for specificity, subjective immediacy, and cataphoric accessibility. The construction selects a demonstrative-derived form while introducing a discourse-new referent, exactly the kind of form--meaning mismatch the framework predicts when morphosyntactic frames achieve constructional autonomy (§\ref{subsec:autonomy}).
+The account explains this as \term{constructional recruitment}. Certain narrative-presentation constructions recruit deital morphology for specificity, subjective immediacy, and cataphoric accessibility rather than ordinary definiteness. Demonstrative morphology is a motivated recruit here, not an arbitrary one: demonstratives already direct attention and encode speaker-anchored salience, which is just the material narrative presentation needs for vividness and expected continuation. The construction selects a demonstrative-derived form while introducing a discourse-new referent, exactly the kind of form--meaning mismatch the framework predicts when morphosyntactic frames achieve constructional autonomy (§\ref{subsec:autonomy}).
 
 If narrative \mention{this} reflects constructional recruitment rather than a separate lexical item, we predict asymmetric diagnostic behaviour:
 
 \begin{itemize}
-    \item Existential \mention{there}. The narrative construction licenses the combination directly. \mention{There was this guy} is acceptable because the construction packages discourse-new reference with narrative prosody and cataphoric accessibility. The contrast with \mention{There was a guy at the door} is not basic grammaticality; the latter is an ordinary narrative opening. The predicted contrast is discourse effect: \mention{this} should make the referent more vivid, noteworthy, and likely to be continued.
+    \item Existential \mention{there}. The narrative construction licenses the combination directly. \mention{There was this guy} is acceptable because the construction packages discourse-new reference with narrative prosody and cataphoric accessibility. The contrast with \mention{There was a guy at the door} isn't basic grammaticality; the latter is an ordinary narrative opening. The predicted contrast is discourse effect: \mention{this} should make the referent more vivid, noteworthy, and likely to be continued.
 
-    \item Partitive \mention{Y}. The construction does not alter partitive \mention{Y}-licensing. A singular narrative \mention{this guy} cannot supply a plural domain for \mention{two of}; plural demonstrative forms such as \mention{these guys} can serve as partitive complements only when they establish a referential group. Narrative framing does not by itself create that domain.
+    \item Partitive \mention{Y}. The construction doesn't alter partitive \mention{Y}-licensing. A singular narrative \mention{this guy} can't supply a plural domain for \mention{two of}; plural demonstrative forms such as \mention{these guys} can serve as partitive complements only when they establish a referential group. Narrative framing doesn't by itself create that domain.
 
     \item Identificational hosting. Narrative \mention{this} should show intermediate acceptability, better than bare \mention{a} (because demonstrative morphology provides the salience hosting requires) but worse than canonical deital uses (because the referent lacks discourse history). This matches the specificity-forcing prediction in §\ref{sec:specific}.
 \end{itemize}
 
-Constructional autonomy (§\ref{subsec:autonomy}) explains how morphosyntactic frames, once established, can be recruited for new functions. The narrative-presentational construction in English recruits demonstrative morphology for marking specificity, immediacy, and expected continuation while introducing a discourse-new referent. It's a construction that uses deital form while relaxing ordinary definiteness semantics.
+Constructional autonomy (§\ref{subsec:autonomy}) explains how established morphosyntactic frames can be recruited for new functions, but it doesn't license every mismatch equally. English narrative presentation recruits demonstrative morphology for specificity, immediacy, and expected continuation while introducing a discourse-new referent. That recruitment is plausible because demonstratives already package attention direction.
 
-The diagnostics need not move together. The construction licenses the \mention{there} + demonstrative combination and improves discourse accessibility, but it does not automatically alter partitive domain requirements or the narrow \mention{one}-substitution residue. This selective pattern confirms that deitality is a profile of partly independent distributional requirements, not a unitary feature that flips wholesale.
+The diagnostics needn't move together: the construction licenses the \mention{there} + demonstrative combination and improves discourse accessibility, but it doesn't automatically alter partitive domain requirements or the narrow \mention{one}-substitution residue. This selective pattern confirms that deitality is a profile of partly independent distributional requirements, which is why the diagnostics can move separately.
 
-This stability likely arises from three stabilizers:
+The sources of stability for narrative \mention{this} remain open. Three hypotheses would make the constructional account more specific:
 \begin{itemize}
-\item Acquisition packages the narrative frame with demonstrative morphology. Children do not have to decompose it into \enquote{indefinite this.}
+\item Acquisition packages the narrative frame with demonstrative morphology, so children don't have to decompose it into \enquote{indefinite this.}
 \item Register and genre conventionalize the pattern in oral narrative, maintaining it across generations despite prescriptive pressure.
-\item Processing supports the construction because its prosodic packaging (narrative contour) signals the non-canonical semantics, preventing garden-pathing.
+\item Processing supports the construction because its prosodic packaging (narrative contour) signals the non-canonical semantics.
 \end{itemize}
 
-The constructional account makes testable predictions that distinguish it from a polysemy analysis:
-
-First, remove the narrative frame, and the discourse effect weakens. \mention{This guy walked in} can be acceptable as a colloquial specific indefinite, but it should be less strongly cataphoric than \mention{There was this guy who walked in} in a story-opening frame.
-
-Second, the construction should differentiate determinatives by discourse effect rather than by simple grammaticality. \mention{There was a guy at the door...} should be acceptable, but \mention{There was this guy at the door...} should increase vividness, noteworthiness, and expected continuation of the referent.
-
-Third, acquisition should show frame-dependence. Children should initially restrict narrative \mention{this} to the learned constructions (story-openings, presentationals) before generalizing. They should not show across-the-board \enquote{indefinite this} independent of constructional context.
+The constructional account makes testable predictions that distinguish it from a polysemy analysis. Remove the narrative frame, and the discourse effect should weaken: \mention{This guy walked in} can be acceptable as a colloquial specific indefinite, but it should be less strongly cataphoric than \mention{There was this guy who walked in} in a story-opening frame. The construction should also differentiate determinatives by discourse effect rather than by simple grammaticality. \mention{There was a guy at the door...} should be acceptable, but \mention{There was this guy at the door...} should increase vividness, noteworthiness, and expected continuation of the referent. Finally, acquisition should show frame-dependence: children should initially restrict narrative \mention{this} to learned story-opening and presentational constructions before generalizing. They shouldn't show across-the-board \enquote{indefinite this} independent of constructional context.
 
 If these predictions fail (if \mention{this} behaves exactly like \mention{a} in narrative frames, if it shows no special cataphoric effect, or if children use indefinite \mention{this} freely without constructional anchoring), the constructional account is falsified and a polysemy analysis becomes necessary.
 
@@ -585,27 +505,27 @@ If these predictions fail (if \mention{this} behaves exactly like \mention{a} in
 
 \subsection{Proper names}
 
-Proper names are semantically definite (they refer to unique, identifiable individuals), but they typically lack deital morphology in English. This seems to challenge the correlation between deitality and definiteness, but it also illustrates why the level of analysis matters. English singular names are not determinative lexemes; they're DPs whose semantic profile is definite without ordinary deital marking.
+Proper names are semantically definite (they refer to unique, identifiable individuals), but they typically lack deital morphology in English \parencite{lyons1999}. The reason isn't that singular names are exempt from deital marking. It's that bare singular names sit outside the relevant part of the determiner system. In \CGEL{} terms, \mention{John} is a proper noun functioning as a full NP. It secures reference lexically, so the NP doesn't need a determiner slot whose filling could carry a deital signal.
 
-The projectibility-first account predicts this pattern. Names show properties from the definiteness profile (identifiability, uniqueness, anaphoric recoverability) without the typical morphological marking. They're therefore not failed deital determinatives. They're a different realization of semantic definiteness. A bad string such as \mention{*two of John} does not show this by itself; it's bad because a singular name denotes an individual rather than a plural domain. More revealing are cases where the level changes: lexicalized article names such as \mention{The Boring Company}, coordinate pluralities such as \mention{two of Brett, Craig, and Michael}, and family-name plurals such as \mention{the Smiths} each involve different DP structures. They should not be collapsed into one diagnostic verdict for bare names.
+The demonstrative-to-article path supplies the background for this prediction \parencite{greenberg1978,diessel1999}. Demonstrative-derived markers should spread most naturally where reference has to be secured compositionally: ordinary definite descriptions, anaphoric NPs, and related determiner-function constructions. Bare singular names are where overt identifiability marking does the least work. Modern Greek commonly uses an overt definite marker with personal names in ordinary argument positions, for example \olang{o Stavros} `the Stavros', though its use is conditioned by case, construction, and register \parencite{HoltonEtAl2012}. English bare \mention{John} and Greek \olang{o Stavros} are positions in a diachronic and constructional space, not counterexamples to the deitality--definiteness correlation.
 
-Languages differ in whether they require overt deital marking on inherently definite referents. English omits articles on singular names, providing a non-deital marker only on exceptional indefinite uses: \mention{a Susan arrived} = 'some person named Susan'. Modern Greek commonly uses the definite article with personal names in ordinary argument positions, for example \olang{o Stavros} 'the Stavros', though article use is conditioned by case, construction, and register \parencite{HoltonEtAl2012}. Both languages treat names as semantically definite; they differ in morphosyntactic realization.
+Within English, deital marking reasserts itself exactly where names enter ordinary NP determination. Pluralization forces property denotation: \mention{Smiths} denotes something like \enquote{members of the Smith family}, not a single rigid individual. Once the name has been coerced into a plural nominal, the productive bare-plural pattern would suggest an indefinite or generic reading. The deital determiner marks the intended identifiable plural domain: \mention{the Smiths}, \mention{the Johnsons}. This isn't an ad hoc override. It's ordinary deital determination after coercion into a construction where determination has work to do.
 
-English reveals one version of the logic when names enter constructions with indefinite defaults. Bare plurals are indefinite: \mention{dogs}, \mention{books}, \mention{students}. When a family name needs plural form, the constructional signal (bare plural = indefinite) clashes with the semantic requirement (family name = definite). English resolves this by adding deital marking: \mention{the Smiths}, \mention{the Johnsons}. The article is not redundant here; it overrides the constructional default to preserve definiteness. This differs from bare singular \mention{John}; it provides evidence that names interact with deital morphology at the DP/construction level.
+The same mechanism covers nearby cases. \mention{A Susan arrived} coerces the name into a common-noun-like description, roughly `some person named Susan'. \mention{The young Einstein} uses a name with descriptive content and deital marking. Lexicalized \mention{the}-names such as \mention{The Boring Company} package the article into the name's conventional form. A bad string such as \mention{*two of John} doesn't show non-deitality by itself; it's bad because a singular name denotes an individual rather than a plural domain. More revealing are cases where the name is coerced, pluralized, coordinated, or lexicalized, since those cases show when names do and don't enter the deital profile.
 
-Cross-linguistic variation in article use with names confirms that the profiles are maintained by different processes. The deital profile's distributional restrictions and the definiteness profile's interpretive properties overlap substantially but are not identical. They correlate strongly because grammaticalization and acquisition create conventional pairings. Names can be definite without deital marking (English singular names), require deital marking when constructions signal otherwise (English plural names), or commonly appear with deital marking in ordinary argument positions (Modern Greek personal names).
+This gives a projection target. Deital behaviour should strengthen as names move from bare lexical reference into ordinary NP determination: bare singular names should show the least deital behaviour; modified names, plural family names, lexicalized \mention{the}-names, and name-derived common nouns should show more of it when the intended reading is identifiable. The account doesn't predict where a given language sits on the cline. That's contingent history. It predicts the shape of the variation: names can be definite without deital marking, require deital marking when constructional cues would otherwise mislead, or commonly appear with deital marking in ordinary argument positions.
 
 \subsection{Interrogatives and relatives}
 
 Interrogative and relative determinatives require special treatment. Most deitality diagnostics presuppose declarative structure. Interrogatives have obligatorily fronted phrases; relatives have distinct clause-internal syntax.
 
-In partitive constructions under standard interrogative force, interrogatives cannot serve as \mention{Y}: \mention{*How many of which students passed?} is degraded compared to \mention{How many of the students passed?} Echo questions allow it (\mention{Two of WHICH students?}), but the construction is marked, with distinct prosody and pragmatics. When interrogatives appear in \mention{X} position (\mention{which of the students}, \mention{how many of these books}), they enforce definite-like \mention{Y} just as other quantifiers in \mention{X} do, but the contrast reflects the partitive construction's selectional requirements, not the interrogative's own deital status. Interrogatives also license bare \mention{one} (\mention{Which one?}), unlike deital determinatives. The profile is non-deital under neutral conditions.
+In partitive constructions under standard interrogative force, interrogatives can't serve as \mention{Y}: \mention{*How many of which students passed?} is degraded compared to \mention{How many of the students passed?} Echo questions allow it (\mention{Two of WHICH students?}), but the construction is marked, with distinct prosody and pragmatics. When interrogatives appear in \mention{X} position (\mention{which of the students}, \mention{how many of these books}), they enforce definite-like \mention{Y} just as other quantifiers in \mention{X} do, but the contrast reflects the partitive construction's selectional requirements rather than the interrogative's own deital status. Interrogatives also license bare \mention{one} (\mention{Which one?}), unlike deital determinatives. Under neutral conditions, then, the visible diagnostics don't establish a deital profile; I mark the rows Provisional in the inventory.
 
-For relatives, I follow \emph{The Cambridge Grammar of the English Language} in treating \mention{that} as a subordinator, not a determinative \parencite{HuddlestonPullum2002}. It marks subordination and does not realize an argument position. \mention{Which}, by contrast, is a determinative when it appears with an overt head (\mention{in which chapter}). In fused-head constructions (\mention{I read which(ever) you recommended}), it patterns like other fused forms, sometimes deital, sometimes not, depending on the broader structure.
+For relatives, I follow \emph{The Cambridge Grammar of the English Language} in treating \mention{that} as a subordinator, not a determinative \parencite{HuddlestonPullum2002}. It marks subordination and doesn't realize an argument position. \mention{Which} is a determinative when it appears with an overt head (\mention{in which chapter}). Relative \mention{which} also shows definiteness without ordinary deital marking: \mention{It may rain, in which case we'll leave early} is anaphoric and definite in interpretation, while the independent-clause paraphrase recruits a deital demonstrative, \mention{It may rain. In that case, we'll leave early}. In fused-head constructions (\mention{I read which(ever) you recommended}), \mention{which} patterns like other fused forms, sometimes deital, sometimes not, depending on the broader structure.
 
 \subsection{Exclamatives}
 
-Exclamative phrases like \mention{What a mess!} or \mention{So many people!} have clause-type-specific syntax. Most diagnostics do not apply cleanly. Where exclamative phrases surface in declarative contexts, they pattern non-deitally: \mention{There was such a mess} is fine; \mention{??Such a book, which I bought, is rare} is degraded.
+Exclamative phrases like \mention{What a mess!} or \mention{So many people!} have clause-type-specific syntax. Most diagnostics don't apply cleanly. Where exclamative phrases surface in declarative contexts, they pattern non-deitally: \mention{There was such a mess} is fine; \mention{??Such a book, which I bought, is rare} is degraded.
 
 Exclamative force (expressing extreme degree) is orthogonal to the deitality profile. When exclamative determinatives appear outside their clause type, they behave like other degree-modified quantifiers: acceptable after \mention{there}, poor hosts for identificational constructions.
 
@@ -613,184 +533,177 @@ Exclamative force (expressing extreme degree) is orthogonal to the deitality pro
 
 The most serious objection is circularity: the diagnostics define the category they purport to identify. If deitality is characterized by resistance to existential \mention{there}, partitive \mention{Y}-licensing, etc., and those same properties are used to identify deital determinatives, haven't we just described the same facts twice?
 
-The reply begins by separating three moments in the argument. Diagnostics identify a synchronic profile. Diachrony and acquisition explain why that profile is not accidental. Projection tests ask whether locating an item or construction in the profile licenses further inferences. Identification need not be independent of every diagnostic property; anti-essentialist categories are often identified by clustered symptoms. The requirement is that the profile support inferences beyond mere relabelling.
+The reply begins by separating three moments in the argument. Diagnostics identify a synchronic profile. Diachrony and acquisition explain why that profile isn't accidental. Projection tests ask whether locating an item or construction in the profile licenses further inferences. Identification doesn't have to be independent of every diagnostic property; anti-essentialist categories are often identified by clustered symptoms. The requirement is that the profile support inferences beyond mere relabelling.
 
-First, the diagnostics are independently motivated. Existential \mention{there}, partitives, and identificational constructions are well-studied phenomena with their own syntactic and semantic analyses \parencite{milsark1977,Barker1998,Lambrecht1994}. I'm not inventing tests to fit a theory; I'm using established diagnostics to reveal a profile.
+Two safeguards keep the argument from merely naming its own evidence. First, the diagnostics are independently motivated: existential \mention{there}, partitives, and identificational constructions are well-studied phenomena with their own syntactic and semantic analyses \parencite{milsark1977,Barker1998,Lambrecht1994}. I draw on these established tests to reveal a profile. Second, the strongest sources and stabilizers are independently attested. The cross-linguistic record documents grammaticalization pathways from demonstratives to definite markers \parencite{diessel1999}. Acquisitional overgeneralization of \mention{the} is an empirical finding \parencite{maratsos1976}. The account doesn't infer every stabilizer from the data it's meant to explain. It derives predictions from independently motivated diachronic and acquisitional processes.
 
-Second, the strongest sources and stabilizers are independently attested. Grammaticalization pathways from demonstratives to articles are documented cross-linguistically \parencite{diessel1999}. Acquisitional overgeneralization of \mention{the} is an empirical finding \parencite{maratsos1976}. The account does not infer every stabilizer from the data it's meant to explain. It derives predictions from independently motivated diachronic and acquisitional processes.
+The deeper worry is collapse: perhaps the diagnostics aren't a profile at all but one semantic property (presuppositionality, referentiality, specificity, or familiarity) measured four ways. The answer is dissociation under manipulation. Prosody can rescue existential pivots but not partitive \mention{Y} complements. Specificity can improve identificational hosting without changing partitive \mention{Y}-licensing. Weak definites preserve deital \mention{the}-morphology but lose the weak reading under partitive \mention{Y}-licensing pressure. Quantifiers such as \mention{each} and \mention{every} resist existential pivots while failing other diagnostics. These splits would be surprising if the diagnostics were just one hidden semantic feature. They're expected if deitality is a ranked profile whose components are related but not identical.
 
-The deeper worry is collapse: perhaps the diagnostics are not a profile at all but one semantic property (presuppositionality, referentiality, specificity, or familiarity) measured four ways. The answer is dissociation under manipulation. Prosody can rescue existential pivots but not partitive \mention{Y} complements. Specificity can improve identificational hosting without changing partitive \mention{Y}-licensing. Weak definites preserve deital article morphology but lose the weak reading under partitive \mention{Y}-licensing pressure. Quantifiers such as \mention{each} and \mention{every} resist existential pivots while failing other diagnostics. These splits would be surprising if the diagnostics were just one hidden semantic feature. They're expected if deitality is a ranked profile whose components are related but not identical.
+A more sophisticated collapse objection replaces one semantic feature with several: existential \mention{there} tracks information-structural newness, partitives track domain establishment, hosting tracks specificity, and the observed clustering is just the ordinary correlation among those semantic and pragmatic properties. This version is harder to dismiss, and one part is right. The diagnostics are semantically leaky. A semantic-bundle account can also mimic some of the manipulation results: it can say that domain establishment is prosody-insensitive while presentational newness is prosody-sensitive. The prosody split alone doesn't settle the issue.
 
-A more sophisticated collapse objection replaces one semantic feature with several: existential \mention{there} tracks information-structural newness, partitives track domain establishment, hosting tracks specificity, and the observed clustering is just the ordinary correlation among those semantic and pragmatic properties. This version is harder to dismiss, and one part is right. The diagnostics are semantically leaky. But a purely semantic bundle leaves two facts unexplained. First, the same historical forms recur across the distributional profile: demonstrative-derived determinatives, including English \mention{the}, \mention{this}, \mention{that}, \mention{these}, and \mention{those}, carry a shared formal lineage described above. The /ð/ pattern is not a diagnostic, but the pattern is a residue of form history that a semantic-only account treats as accidental. Second, the profile supports cross-level predictions: semantic manipulation improves hosting, prosody improves \mention{there}, and neither manipulation supplies a weak partitive \mention{Y}. That pattern is better captured by a level-sensitive morphosyntactic profile with semantic interfaces than by a set of independent semantic filters.
+The projectibility-first account earns its keep only where it predicts effects that a semantic bundle doesn't get without extra assumptions. Two tests matter most. The first is acquisitional. If partitive \mention{Y}-licensing, existential pivot resistance, and hosting are learned as unrelated semantic filters, there's no clear reason to expect the ordering predicted above: earlier control of the hard partitive restriction and later adult-like control of neutral-prosody existential pivots. If children instead learn all three according to independent semantic complexity, the projectibility-first account loses support.
+
+The second test concerns weak definites in existential contexts. On the projectibility-first account, an institutional weak definite shouldn't freely behave like an ordinary indefinite pivot just because its token-level semantics is non-unique. A sentence such as \mention{There's the bus} is acceptable on deictic, arrival, or list readings; the discriminating question is whether the weak institutional reading survives a neutral expletive-\mention{there} frame as readily as ordinary indefinite pivots do. If it does, the semantic-bundle account gains ground. If the institutional reading resists neutral pivothood while deictic or presentational readings are available, that's deital residue not explained by indefinite semantics alone.
+
+The same historical forms also recur across the distributional profile: demonstrative-derived determinatives, including English \mention{the}, \mention{this}, \mention{that}, \mention{these}, and \mention{those}, carry a shared formal lineage described above. The /ð/ pattern isn't a diagnostic, but it's a trace of form history that a semantic-only account treats as accidental. The positive case is cumulative: lineage, acquisition, weak-definite residue, and cross-level manipulation have to pattern together. Any one of them can be explained away locally; the profile claim says they should travel together often enough to support further inference.
 
 \section{Conclusion}\label{sec:conclusion}
 
-I've argued for a principled separation between deitality (a structural profile) and definiteness (a semantic one). The separation is motivated empirically by systematic form--meaning mismatches \parencite{FrancisMichaelis2003}: weak definites, generic definites, narrative \mention{this}, and proper names show that morphological marking and referent identifiability do not align perfectly.
+The definiteness problem becomes clearer once we stop asking one profile to do the work of two. Deitality and definiteness are strongly correlated, but they support different inferences. Deitality projects from form to distribution: from \mention{the}, demonstratives, and related determiner-function constructions to expectations about partitives, existential pivots, identificational hosting, and the narrow \mention{one}-substitution residue. Definiteness projects from interpretation to discourse management: from identifiability, uniqueness, and recoverability to expectations about anaphora, common ground, and topic continuity.
 
-The apparatus comes from anti-essentialist natural-kind theory, but the claim is grammatical. Deitality is justified by projectibility: the category lets us predict which diagnostics travel together, which restrictions survive semantic mismatch, and which parts of the system are sensitive to prosody, construction, dialect, and acquisition. The deital profile includes ranked distributional restrictions (partitive \mention{Y}-licensing, existential \mention{there} resistance, identificational hosting, and the narrower bare \mention{one}-substitution residue) plus a strong tendency to mark semantically definite referents. The definiteness profile includes interpretive properties (identifiability, uniqueness, anaphoric recoverability) plus a strong tendency to be marked by deital morphology.
+The mismatch cases show why the separation matters. Weak definites, generic definites, narrative \mention{this}, and proper names show that morphological marking and referent identifiability don't align perfectly \parencite{FrancisMichaelis2003}. Two illustrate the point most sharply: weak definites show deital morphology without ordinary token-level definiteness semantics, while proper names show definiteness semantics without ordinary deital marking. Generic definites and narrative \mention{this} extend the same logic to kind reference and constructional recruitment. Together, the mismatch cases let us see which parts of the two profiles remain coupled and which parts can move independently.
 
-The analysis separates stable profile, maintenance, and strict homeostasis. Deitality has a projection target and a stable grammatical profile. It also has a plausible source-and-stabilizer account: grammaticalization creates much of the profile historically through property dragging; acquisition helps reproduce it in each generation; interactive alignment, prestige selection, and iterated transmission may stabilize particular regions of the profile. Definiteness is maintained by discourse-pragmatic pressures: common ground management, bridging, and topic continuity create correlations among identifiability, uniqueness, and anaphoric tracking. Nothing in the argument requires deitality to be a single corrective-control system.
+The natural-kind apparatus adds one constraint: a category earns its place by supporting further inference, not by supplying an essence or a strict corrective-control system. The analysis is limited in the same way. A semantic-bundle account can mimic some of the dissociations, so the strongest tests are the ones that separate the accounts, especially acquisition order and weak-definite behaviour in neutral existential frames.
 
-The profiles overlap substantially (most semantically definite referents are marked deitally, and most deital marking appears on definite referents) because grammaticalization conventionalized this pairing and discourse efficiency maintains it. The stabilizing pressures are partly distinct, which allows systematic dissociations: weak definites show deital morphology without ordinary token-level definiteness semantics; proper names show definiteness semantics without ordinary deital marking. Those mismatches show what the category lets us infer about residual morphosyntax once semantics shifts.
+The predictions run from utterance-level manipulation to community-level variation and developmental change. Prosody should affect existential pivots but not partitive \mention{Y}-licensing. Specificity should improve indefinites in identificational environments without producing deital baselines. Licensed institutional frames should preserve institutional readings where demonstratives and genitive NPs tend to force referential ones. Broader dialect data should show a layered pattern: article realization, article presence, reinforced demonstratives, and demonstrative paradigms may vary across dialect grammars, while a variety that allows weak indefinites as ordinary partitive \mention{Y} complements would mark a deeper grammar difference. Children should show earlier control of partitive \mention{Y}-licensing than adult-like neutral-prosody \mention{there}-resistance. These are empirical commitments, not just redescriptions.
 
-The framework generates falsifiable predictions. Prosodic manipulation should affect existential pivots but not partitive \mention{Y}-licensing. Specificity forcing should improve indefinites in identificational environments without reaching deital baselines. Dialectal variation in institutional frames should preserve or lose institutional readings systematically rather than by free determinative substitution. Acquisition should show developmental asymmetries reflecting the source-and-stabilizer account. These predictions distinguish the projectibility-first account from semantic or purely distributional alternatives and are testable through corpus studies, experimental psycholinguistics, and acquisition research.
+Two broader lessons follow. Grammatical categories can be profile-like rather than essence-like. Sometimes the right move isn't a better definition of the inherited label but a split into profiles with different diagnostics, stabilizers, and projection targets. Aspect, mood, transitivity, verb, and adjective are possible candidates for the same treatment. The maintenance story beyond grammaticalization and acquisition is deliberately scoped as a research programme: the result here is the projectible profile and its predictions, not a complete causal theory of every stabilizer.
 
-The approach clarifies the methodological stance required for studying grammatical categories. Identifying grammatical categories of this kind requires empirical investigation (corpus studies, acquisition research, cross-linguistic comparison), not a priori stipulation. The profiles and their stabilizing pressures are discovered through scientific practice because they support generalizations that work. This aligns linguistic ontology with empirical linguistics rather than treating grammatical categories as objects of pure philosophical analysis.
-
-There are two broader implications. First, the approach offers a model for other recalcitrant grammatical categories. Aspect, mood, transitivity, and even major lexical categories like verb and adjective might be fruitfully reanalysed as projectible profiles. The move away from essentialism toward causally grounded profiles could reshape how we think about grammatical ontology.
-
-Second, the framework bridges theoretical divides. By grounding formal categories in diachrony and acquisition, it connects synchronic structure to historical change and cognitive development. The result is a richer picture of how grammatical categories work.
-
-The definiteness problem becomes clearer once we stop asking one profile to do the work of two: one primarily morphosyntactic, one primarily semantic, each comprising properties from both domains but maintained by different causal processes. Their correlation is real and grounded, and the categories remain distinct. Once the categories are separated, they support explanation: they let us predict which diagnostics will travel together, which mismatches will preserve deital residue, and which dimensions of the system will vary across dialects, constructions, and learning stages.
+Deitality and definiteness remain strongly correlated because grammaticalization, acquisition, and discourse pressure keep drawing them together, but the categories are distinct. Kept distinct, they explain why diagnostics travel together, why mismatches preserve deital residue, and why prosody, construction, dialect, and acquisition perturb different parts of the system. The point is to let each category do its own work.
 
 \clearpage
 \appendix
-\section{Provisional Inventory of English Determinatives}\label{sec:inventory}
+\section{Provisional Inventory of English Determinatives and Related Forms}\label{sec:inventory}
 
-The table below is a compact test set rather than a defended taxonomy of every English determinative. The core contrasts are used in the argument above; rows involving fused relatives, exclamatives, and personal determinatives are included to mark empirical terrain for later judgment and corpus work.
+The table below is a compact orientation device; it isn't a defended taxonomy of every English determinative. The cells are author judgments intended to make the profile auditable; only the core contrasts developed in the main text are used as evidence in the argument. Rows marked Provisional, especially fused relatives, exclamatives, compound forms, and personal determinatives, mark empirical terrain for later judgment and corpus work.
 
-\begin{table}[ht!]
-\centering
+\begingroup
 \footnotesize
-\begin{tabular}{lccccl}
+\begin{longtable}{@{}lcccl@{}}
+\caption{Provisional inventory of English determinatives and related forms.}\label{tab:inventory}\\
 \toprule
-\textbf{Determinative} & \textbf{\mention{there}-resist.} & \textbf{Domain-\mention{Y}} & \textbf{Hosting} & \textbf{\mention{one}-block} & \textbf{Class} \\
+\textbf{Item or construction} & \textbf{\mention{there}-resist.} & \textbf{Domain-\mention{Y}} & \textbf{Hosting} & \textbf{Status} \\
 \midrule
-\multicolumn{6}{l}{\emph{Core deital items}} \\
-\mention{the} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
-\mention{this} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
-\mention{that} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
-\mention{these} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
-\mention{those} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Universal/distributive quantifiers} (mixed)} \\
-\mention{each} & \checkmark & -- & -- & \checkmark & Mixed \\
-\mention{every} & \checkmark & -- & -- & \checkmark & Mixed \\
-\mention{everybody/everyone} & \checkmark & -- & \checkmark & \checkmark & Mixed \\
-\mention{everything} & \checkmark & -- & \checkmark & \checkmark & Mixed \\
-\mention{everywhere} & \checkmark & -- & \checkmark & \checkmark & Mixed \\
-\mention{all} & --$^a$ & -- & -- & \checkmark & Mixed \\
-\mention{both} & --$^a$ & -- & -- & \checkmark & Mixed \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Alternative/negative quantifiers} (mixed)} \\
-\mention{either} & \checkmark & -- & -- & -- & Mixed \\
-\mention{neither} & \checkmark & -- & -- & -- & Mixed \\
-\mention{no} & -- & -- & -- & \checkmark & Mixed \\
-\mention{nobody/no one} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{nothing} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{nowhere} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{none} & -- & -- & -- & -- & \Nondeital{} \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Indefinites and weak quantifiers}} \\
-\mention{a/an} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{a certain} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{a few} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{a little} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{another} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{some} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{somebody/someone} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{something} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{somewhere} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{any} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{anybody/anyone} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{anything} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{anywhere} & -- & -- & -- & -- & \Nondeital{} \\
+\endfirsthead
+\caption[]{Provisional inventory of English determinatives and related forms (continued).}\\
+\toprule
+\textbf{Item or construction} & \textbf{\mention{there}-resist.} & \textbf{Domain-\mention{Y}} & \textbf{Hosting} & \textbf{Status} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\emph{Continued on next page}}\\
+\endfoot
 \bottomrule
-\end{tabular}
-\end{table}
+\endlastfoot
+\multicolumn{5}{l}{\emph{Core deital items and constructions}} \\
+\mention{the} & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\mention{this} & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\mention{that} & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\mention{these} & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\mention{those} & \checkmark & \checkmark & \checkmark & \Deital{} \\
+personal genitives (\mention{my}, \mention{your}, etc.) & \checkmark & \checkmark & \checkmark & \Deital{} \\
+genitive NPs in determiner function (\mention{John's}) & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Universal/distributive quantifiers} (mixed)} \\
+\mention{each} & \checkmark & -- & -- & Mixed \\
+\mention{every} & \checkmark & -- & -- & Mixed \\
+\mention{everybody/everyone}$^a$ & \checkmark & -- & ? & Provisional \\
+\mention{everything}$^a$ & \checkmark & -- & ? & Provisional \\
+\mention{everywhere}$^a$ & n/a & n/a & ? & Provisional \\
+\mention{all} & --$^b$ & -- & -- & Mixed \\
+\mention{both} & --$^b$ & -- & -- & Mixed \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Alternative/negative quantifiers}} \\
+\mention{either} & \checkmark & -- & -- & Mixed \\
+\mention{neither} & \checkmark & -- & -- & Mixed \\
+\mention{no} & -- & -- & -- & \Nondeital{} \\
+\mention{nobody/no one}$^a$ & -- & -- & -- & \Nondeital{} \\
+\mention{nothing}$^a$ & -- & -- & -- & \Nondeital{} \\
+\mention{nowhere}$^a$ & n/a & n/a & -- & Provisional \\
+\mention{none} & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Indefinites and weak quantifiers}} \\
+\mention{a/an} & -- & -- & -- & \Nondeital{} \\
+\mention{a certain} & -- & -- & -- & \Nondeital{} \\
+\mention{a few} & -- & -- & -- & \Nondeital{} \\
+\mention{a little} & -- & -- & -- & \Nondeital{} \\
+\mention{another} & -- & -- & -- & \Nondeital{} \\
+\mention{some} & -- & -- & -- & \Nondeital{} \\
+\mention{somebody/someone}$^a$ & -- & -- & -- & \Nondeital{} \\
+\mention{something}$^a$ & -- & -- & -- & \Nondeital{} \\
+\mention{somewhere}$^a$ & n/a & n/a & -- & Provisional \\
+\mention{any} & -- & -- & -- & \Nondeital{} \\
+\mention{anybody/anyone}$^a$ & -- & -- & -- & \Nondeital{} \\
+\mention{anything}$^a$ & -- & -- & -- & \Nondeital{} \\
+\mention{anywhere}$^a$ & n/a & n/a & -- & Provisional \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Degree/quantity expressions}} \\
+\mention{many} & -- & -- & -- & \Nondeital{} \\
+\mention{much} & -- & -- & -- & \Nondeital{} \\
+\mention{few} & -- & -- & -- & \Nondeital{} \\
+\mention{fewer} & -- & -- & -- & \Nondeital{} \\
+\mention{little} & -- & -- & -- & \Nondeital{} \\
+\mention{less} & -- & -- & -- & \Nondeital{} \\
+\mention{more} & -- & -- & -- & \Nondeital{} \\
+\mention{most} (proportional) & -- & -- & -- & \Nondeital{} \\
+\mention{several} & -- & -- & -- & \Nondeital{} \\
+\mention{certain} (plural) & -- & -- & -- & \Nondeital{} \\
+\mention{various} & -- & -- & -- & \Nondeital{} \\
+\mention{multiple} & -- & -- & -- & \Nondeital{} \\
+\mention{enough} & -- & -- & -- & \Nondeital{} \\
+\mention{sufficient} & -- & -- & -- & \Nondeital{} \\
+\mention{umpteen} & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Superlatives and ordinals} (deital in referential frames)} \\
+(\mention{the}) \mention{most\upslash fewest\upslash least}$^c$ & \checkmark & -- & \checkmark & \Deital{} \\
+\mention{last}$^c$ & \checkmark & n/a & \checkmark & \Deital{} \\
+\mention{next}$^c$ & \checkmark & n/a & \checkmark & \Deital{} \\
+\mention{said} & \checkmark & \checkmark & \checkmark & \Deital{} \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Numerals}$^d$} \\
+\mention{zero} & -- & -- & -- & \Nondeital{} \\
+\mention{one} (numeral) & -- & -- & -- & \Nondeital{} \\
+\mention{two, three, four...} & -- & -- & -- & \Nondeital{} \\
+\mention{ten, twenty...ninety} & -- & -- & -- & \Nondeital{} \\
+\mention{hundred, thousand, million} & -- & -- & -- & \Nondeital{} \\
+\mention{once, twice, thrice}$^d$ & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Interrogatives} (clause-type dependent)$^e$} \\
+\mention{what} & n/a & -- & n/a & Provisional \\
+\mention{which} & n/a & -- & n/a & Provisional \\
+\mention{whose} & n/a & -- & n/a & Provisional \\
+\mention{how many/much} & n/a & -- & n/a & Provisional \\
+\mention{what/which kind of} & n/a & -- & n/a & Provisional \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Relatives and fused relatives}$^f$} \\
+\mention{which} (with overt head) & n/a & -- & n/a & Provisional \\
+\mention{what} (fused relative) & \checkmark & \checkmark & \checkmark & Provisional \\
+\mention{whatever} (ignorance) & \checkmark & \checkmark & \checkmark & Provisional \\
+\mention{whatever} (free-choice) & \checkmark & -- & -- & Mixed \\
+\mention{whichever} (ignorance) & \checkmark & \checkmark & \checkmark & Provisional \\
+\mention{whichever} (free-choice) & \checkmark & -- & -- & Mixed \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Exclamatives} (clause-type dependent)$^g$} \\
+\mention{what} (exclamative) & -- & -- & -- & \Nondeital{} \\
+\mention{what a} & -- & -- & -- & \Nondeital{} \\
+\mention{such} & -- & -- & -- & \Nondeital{} \\
+\mention{such a} & -- & -- & -- & \Nondeital{} \\
+\mention{so many/much} & -- & -- & -- & \Nondeital{} \\
+\mention{how many/much} (excl.) & -- & -- & -- & \Nondeital{} \\
+\addlinespace
+\multicolumn{5}{l}{\emph{Personal determinatives}$^h$} \\
+\mention{us} & n/a & ? & n/a & Provisional \\
+\mention{we} & n/a & ? & n/a & Provisional \\
+\mention{you} & n/a & ? & n/a & Provisional \\
+\end{longtable}
+\endgroup
 
-\begin{table}[ht!]
-\centering
+\begingroup
 \footnotesize
-\begin{tabular}{lccccl}
-\toprule
-\textbf{Determinative} & \textbf{\mention{there}-resist.} & \textbf{Domain-\mention{Y}} & \textbf{Hosting} & \textbf{\mention{one}-block} & \textbf{Class} \\
-\midrule
-\multicolumn{6}{l}{\emph{Degree/quantity expressions}} \\
-\mention{many} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{much} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{few} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{fewer} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{little} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{less} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{more} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{most} (proportional) & -- & -- & -- & -- & \Nondeital{} \\
-\mention{several} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{certain} (plural) & -- & -- & -- & -- & \Nondeital{} \\
-\mention{various} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{multiple} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{enough} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{sufficient} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{umpteen} & -- & -- & -- & -- & \Nondeital{} \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Superlatives and ordinals} (deital in referential frames)} \\
-(\mention{the}) \mention{most\upslash fewest\upslash least}$^b$ & \checkmark & -- & \checkmark & \checkmark & \Deital{} \\
-\mention{last} & \checkmark & -- & \checkmark & \checkmark & \Deital{} \\
-\mention{next} & \checkmark & -- & \checkmark & \checkmark & \Deital{} \\
-\mention{said} & \checkmark & \checkmark & \checkmark & \checkmark & \Deital{} \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Numerals}$^c$} \\
-\mention{zero} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{one} (numeral) & -- & -- & -- & -- & \Nondeital{} \\
-\mention{two, three, four...} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{ten, twenty...ninety} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{hundred, thousand, million} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{once, twice, thrice} & -- & -- & -- & -- & \Nondeital{} \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Interrogatives} (clause-type dependent)$^d$} \\
-\mention{what} & n/a & -- & n/a & -- & \Nondeital{} \\
-\mention{which} & n/a & -- & n/a & -- & \Nondeital{} \\
-\mention{whose} & n/a & -- & n/a & -- & \Nondeital{} \\
-\mention{how many/much} & n/a & -- & n/a & -- & \Nondeital{} \\
-\mention{what/which kind of} & n/a & -- & n/a & -- & \Nondeital{} \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Relatives and fused relatives}$^e$} \\
-\mention{which} (with overt head) & n/a & -- & n/a & -- & \Nondeital{} \\
-\mention{what} (fused relative) & \checkmark & \checkmark & \checkmark & \checkmark & Provisional \\
-\mention{whatever} (ignorance) & \checkmark & \checkmark & \checkmark & \checkmark & Provisional \\
-\mention{whatever} (free-choice) & \checkmark & -- & -- & -- & Mixed \\
-\mention{whichever} (ignorance) & \checkmark & \checkmark & \checkmark & \checkmark & Provisional \\
-\mention{whichever} (free-choice) & \checkmark & -- & -- & -- & Mixed \\
-\bottomrule
-\end{tabular}
-\end{table}
+\raggedright
+\noindent\checkmark{} = shows the \textsc{deital} pattern named by the column; -- = fails the pattern; n/a = diagnostic undefined for the construction type; ? = untested or confounded in the relevant construction. \mention{There}-resist. means \emph{resists} post-\mention{there} pivothood under neutral prosody (i.e., exhibits the definiteness effect), not that the item occurs after \mention{there} \parencite{milsark1977,McNally2011}. Domain-\mention{Y} means that the item can supply the domain-establishing \mention{Y} complement in a true partitive. The narrow \mention{one}-substitution residue is discussed in §\ref{sec:diagnostics} but isn't used as an inventory column. For status, \textsc{deital} = shows convergence across the ranked diagnostics (prototypical profile members); \textsc{non-deital} = fails the ranked diagnostics; Mixed = shows partial profile convergence rather than a settled boundary verdict; Provisional = included as a target for later validation rather than used as evidence in the paper.
 
-\begin{table}[ht!]
-\centering
-\footnotesize
-\begin{tabular}{lccccl}
-\toprule
-\textbf{Determinative} & \textbf{\mention{there}-resist.} & \textbf{Domain-\mention{Y}} & \textbf{Hosting} & \textbf{\mention{one}-block} & \textbf{Class} \\
-\midrule
-\multicolumn{6}{l}{\emph{Exclamatives} (clause-type dependent)$^f$} \\
-\mention{what} (exclamative) & -- & -- & -- & -- & \Nondeital{} \\
-\mention{what a} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{such} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{such a} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{so many/much} & -- & -- & -- & -- & \Nondeital{} \\
-\mention{how many/much} (excl.) & -- & -- & -- & -- & \Nondeital{} \\
-\addlinespace
-\multicolumn{6}{l}{\emph{Personal determinatives}$^g$} \\
-\mention{us} & n/a & \checkmark & n/a & n/a & Provisional \\
-\mention{we} & n/a & -- & n/a & n/a & Provisional \\
-\mention{you} & n/a & \checkmark & n/a & n/a & Provisional \\
-\bottomrule
-\end{tabular}
+\noindent$^a$The compound rows follow a \CGEL-style category/function lens; readers who treat these as pronouns or adverbs should read them as fused or extended determinative-related expressions rather than core determinative lexemes \parencite{HuddlestonPullum2002}. $^b$Coordination rescues \mention{there}-pivot. $^c$These rows concern referential determiner-function uses, not proportional quantifier use; bare \mention{last} and \mention{next} don't independently supply a full Domain-\mention{Y} complement, so the diagnostic is undefined rather than failed. $^d$See \PrepositionCitation{} for the inclusion of numeral-derived forms such as \mention{once}, \mention{twice}, and \mention{thrice}. $^e$Interrogatives are fronted in questions; diagnostics are largely undefined. $^f$Fused relatives pattern varies by reading (ignorance-definite vs. free-choice). $^g$Exclamatives in declarative contexts pattern non-deitally; frame-initial uses are undefined. $^h$Personal determinatives are limited to constructions such as \mention{us linguists} and require separate treatment; the partitive contrast \mention{two of us/you} vs. \mention{*two of we} is confounded by case selection by \mention{of}.
+\par
+\endgroup
 
-\caption{Provisional inventory of English determinatives. 
-\checkmark{} = shows the \textsc{deital} pattern named by the column; -- = fails the pattern; n/a = diagnostic undefined for the construction type.
-\mention{There}-resist. means \emph{resists} post-\mention{there} pivothood under neutral prosody (i.e., exhibits the definiteness effect), not that the item occurs after \mention{there} \parencite{milsark1977,McNally2011}. Domain-\mention{Y} means that the item can supply the domain-establishing \mention{Y} complement in a true partitive. \mention{One}-block means that the item blocks bare anaphoric \mention{one} under the narrow DP-package diagnostic, not that it licenses \mention{one}.
-For class, \textsc{deital} = shows convergence across the ranked diagnostics (prototypical profile members); \textsc{non-deital} = fails the ranked diagnostics; Mixed = shows partial profile membership; Provisional = included as a target for later validation rather than used as evidence in the paper.
- $^a$Coordination rescues \mention{there}-pivot. $^b$Determinative superlative use only (not proportional quantifier). $^c$See \PrepositionCitation{} for why only these. $^d$Interrogatives fronted in questions; diagnostics largely undefined.
-$^e$Fused relatives pattern varies by reading (ignorance-definite vs. free-choice).
-$^f$Exclamatives in declarative contexts pattern non-deitally; frame-initial uses undefined. $^g$Personal determinatives are limited to constructions such as \mention{us linguists} and require separate treatment; the partitive contrast \mention{two of us/you} vs. \mention{*two of we} is confounded by case selection by \mention{of}.}
+\section*{Declarations}
 
+\paragraph{Funding.} No external funding was received for this work.
 
+\paragraph{Competing interests.} The author declares no competing interests.
 
-
-
-\label{tab:inventory}
-\end{table}
+\paragraph{AI assistance.} During manuscript preparation and revision, primarily in June 2026, the author used Claude Sonnet 4.5 extensively for drafting and editing support, with some input from ChatGPT 5 and Gemini 2.5 Pro. The author also used Claude Opus 4.8, Claude Fable 5, and GPT-5.5 Pro for review feedback, and OpenAI Codex (GPT-5), accessed through the Codex CLI, for revision support. These tools were used through their standard Anthropic, OpenAI, and Google interfaces. The author reviewed and edited all text, verified sources and references, and takes full responsibility for all claims and conclusions.
 
 \clearpage
 \printbibliography

@@ -45,4 +45,4 @@ The manuscript, source files, and compiled PDF are licensed under the Creative C
 
 ## Current status
 
-The paper exists as a LingBuzz preprint (`009369`) and is being revised for *Journal of Linguistics*.
+The paper exists as a LingBuzz preprint (`009369`).
