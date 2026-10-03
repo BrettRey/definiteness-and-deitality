@@ -33,3 +33,6 @@ refs.bib.bak
 
 # macOS
 .DS_Store
+
+# Referee reports and decision letters are not ours to publish (public repo)
+reviews/
